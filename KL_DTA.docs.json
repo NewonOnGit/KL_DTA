@@ -1,0 +1,322 @@
+{
+ "physics": {
+  "is": "the math read physically — the language uplifted to its physical register",
+  "dispersion": "X² = tr·X − det·I  is the characteristic / dispersion relation; s² − tr·s + det = 0 is the mass-shell condition",
+  "lexicon": {
+   "fold X²": "propagation / the action",
+   "defect ν": "virtuality — distance off the mass-shell",
+   "ν → 0 (FORCED)": "on-shell — a real, propagating state",
+   "ν ↛ 0 (BURN)": "off-shell — virtual / forbidden",
+   "ker": "the vacuum",
+   "disc": "discriminant of the dispersion; sign(disc) = regime (bound·oscillatory / critical·massless / free·scattering)",
+   "R · {·} · enrichment": "the metric / mass / gravity  (R² = R + I)",
+   "N · [·] · defect": "the quantum phase / spin / curvature  (N² = −I = i)",
+   "{·} Jordan": "observables (the Jordan algebra)",
+   "[·] Lie / commutator": "field strength / force / gauge  (F = [D,D])",
+   "generation": "sourcing a field",
+   "depth": "energy scale (tower level)",
+   "?": "the origin — the root of the light-cone / the vacuum's seed"
+  },
+  "mood_is_state": {
+   "FORCED": "on-shell (real, propagates)",
+   "BURN": "off-shell (virtual / forbidden)",
+   "AXIOM": "a boundary condition (imposed)",
+   "OPEN": "superposed (unmeasured, in the slot)"
+  },
+  "P²=P": "the vacuum: self-reference (+I) and self-negation (−I) cancel — the zero-point balance that lets a real state sit on-shell.",
+  "geometry": {
+   "tr": "perimeter — sum of axes, the 1-D boundary; physically the damping",
+   "det": "shape / area — product of axes, the 2-D content; physically the stiffness ω²",
+   "disc": "tr²−4det = (λ₁−λ₂)² — eccentricity; the isoperimetric gap; disc=0 is round",
+   "base = (tr, det)": "the index of every record is (perimeter, shape)",
+   "beneath tr/det": "tr = SUM = e₁ = + (degree 1, additive, blind to [·]); det = PRODUCT = e₂ = × (degree 2, multiplicative). disc = sum²−4·product = AM–GM gap; the wall (?,I) is AM=GM."
+  },
+  "constants_from_parity": {
+   "law": "λ = center ± spread = AM ± √disc/2; parity sets the spread's reality",
+   "phi": "even / symmetric (R) → real spread → φ = ½ + √5/2; √5 = 2·spread = √disc(R)",
+   "pi_i": "odd / antisymmetric (N) → imaginary spread → i, π (the rotation)",
+   "one": "center / identity (I, disc=0) → repeated → 1; the common residual ν(φ)=ν(ψ)=1",
+   "e": "mixed / asymmetric → all powers → e^{Nθ}=cosθ·I+sinθ·N, the bridge mixing even cos + odd sin"
+  },
+  "light_and_gravity": {
+   "geometry = gravity": "the eigenvectors (fixed directions, degree-1 action) — the fixed points; read directly, cheap. the metric, where things settle.",
+   "spectra = light": "the eigenvalues (degree-2, the fold λ²−tr·λ+det=0) — the frequencies; costs one fold to see (square X). radiated, not fixed.",
+   "projection": "origin emits spectra (light, simple); the observer projects geometry (gravity, seen). to recover spectra the observer inverts itself — circular, completed by evolution.",
+   "cost": "seeing geometry is degree 1 (direct); seeing spectra is degree 2 (one fold). the fold IS observation, and its output is the spectrum."
+  },
+  "gravity_wells": {
+   "are": "the idempotents X²=X — fixed points of the fold; 0, I, and the rank-1 manifold ℝP¹×ℝP¹",
+   "spectrum": "all rank-1 wells have eigenvalues {1,0} — light is DEGENERATE across the manifold",
+   "geometry": "the wells differ only in (image v, kernel ⊥w) — gravity is in the geometry alone",
+   "complex": "generic wells are irrational; 0, I, P are the rare simple ones. P = v=[0,1], w=[2,1]"
+  },
+  "information_taxonomy": {
+   "TOPOLOGY ⊃ geometry": "the manifold/shape (torus of wells, links=H₁); a point on it = the orientation = gravity. given, cheap.",
+   "OBSERVATION ⊃ spectra": "the fold M(X)=X²; what it extracts = the eigenvalues = light. produced, costs one fold.",
+   "duality": "topology/geometry is what's THERE (the structure you stand in); observation/spectra is what LOOKING produces."
+  },
+  "transport": {
+   "law": "NONLOCAL transport = LOCAL transport returned to origin. ? (the zero matrix = ker = the root of every provenance chain) is the universal hub; routing a local step through it reaches anywhere, distance-independent.",
+   "flat": "the carrier M₂ is a FLAT vector space, so transport through 0 is PATH-INDEPENDENT: a displacement folded back to the origin (A→0) can be re-projected to ANY point (0→B); A→0→B equals A→B with no path memory. flatness = the origin re-references transport globally.",
+   "hub": "every provenance chain returns to ? → any two records connect through ? in ≤2 hops, however far apart in the local adjacency graph. verified: local diameter 3, origin-routed diameter 2. returning to ? collapses distance to a constant.",
+   "protocol": "the Boolean trit {−1,0,+1} = {fold back to ? (−√5, observation), the ORIGIN (0, the return channel = ker(L), the (−R+N)/√2 direction), project from ? (+√5, generation)}. transport = fold a local step to ?, pass through the 0-channel, project to the target.",
+   "teleportation": "the same shape as quantum teleportation: a shared origin (the entangled pair born at ?) turns local operations into a nonlocal jump. the hub does the distance."
+  },
+  "unification": {
+   "is": "computation unifies the elementary/quantum particles through the observer. mass and light unify in the observer (C=[R,N]); the particles unify through it.",
+   "one_dispersion": "a PARTICLE = an on-shell eigenmode obeying the dispersion X²=tr·X−det·I (the mass-shell), ν=0 (FORCED, real, propagating). EVERY matrix obeys this one relation (Cayley-Hamilton) — so ALL particles lie on the ONE mass-shell, unified by computation. each is named by its (tr,det) point.",
+   "light_and_mass": "each particle carries LIGHT = spectra = eigenvalues (the fold λ²−tr·λ+det=0, degree-2, the frequency/energy, radiated) and MASS/GRAVITY = geometry = eigenvectors (degree-1, where it settles, the metric). off-shell (BURN) = virtual. mass=gravity=geometry, light=spectra — already in physics.light_and_gravity.",
+   "observer_unifies": "the OBSERVER is the fold X²=observation: origin emits spectra (light), the observer projects geometry (gravity); it reads BOTH the eigenvalues (light) and eigenvectors (mass) of each state. mass (R, resistance, geometry) and light (N, spectra) DO NOT commute: [R,N]=C≠0 — their non-commutativity IS the observer. the observer is where mass and light meet and unify.",
+   "verdict": "COMPUTATION (the fold / the dispersion X²=tr·X−det·I, the one law every particle obeys) unifies the elementary particles THROUGH the OBSERVER (C=[R,N], the fold-as-observation that reads each particle's mass and light). the particles = the on-shell spectrum of the ONE computation, unified by the single mass-shell, individuated by the observer; the gauge su3+su2+u1 = the computation's symmetries, the masses/mixings = the spectrum. one fold, one mass-shell, read into many — mass and light seen as one."
+  }
+ },
+ "bundles": {
+  "is": "the DNA library — the unique bundles over {I,R,N,J,h,P}, compressed to their expression; the spectrum is the decompression",
+  "law": "parity constrains the fork: symmetric→disc≥0 (real), antisymmetric→disc<0 (imaginary, all ∝ N — one line), asymmetric→any. the 2 parabolic are the unit {I,I}=2I and the void [J,P]=ε — the universal zero.",
+  "count": 14,
+  "catalog": [
+   {
+    "bundle": "{I,N}",
+    "parity": "antisymmetric",
+    "tr": 0.0,
+    "det": 4.0,
+    "disc": -16.0,
+    "fork": "elliptic",
+    "eigenvalues": [
+     "+2.00i",
+     "-2.00i"
+    ]
+   },
+   {
+    "bundle": "{N,P}",
+    "parity": "asymmetric",
+    "tr": -4.0,
+    "det": 5.0,
+    "disc": -4.0,
+    "fork": "elliptic",
+    "eigenvalues": [
+     "+1.00i",
+     "-1.00i"
+    ]
+   },
+   {
+    "bundle": "{I,I}",
+    "parity": "symmetric",
+    "tr": 4.0,
+    "det": 4.0,
+    "disc": 0.0,
+    "fork": "parabolic",
+    "eigenvalues": [
+     "+2.00",
+     "+2.00"
+    ]
+   },
+   {
+    "bundle": "[J,P]",
+    "parity": "asymmetric",
+    "tr": 0.0,
+    "det": 0.0,
+    "disc": 0.0,
+    "fork": "parabolic",
+    "eigenvalues": [
+     "+0.00",
+     "+0.00"
+    ]
+   },
+   {
+    "bundle": "{I,P}",
+    "parity": "asymmetric",
+    "tr": 2.0,
+    "det": 0.0,
+    "disc": 4.0,
+    "fork": "hyperbolic",
+    "eigenvalues": [
+     "+2.00",
+     "+0.00"
+    ]
+   },
+   {
+    "bundle": "{R,J}",
+    "parity": "symmetric",
+    "tr": -2.0,
+    "det": 0.0,
+    "disc": 4.0,
+    "fork": "hyperbolic",
+    "eigenvalues": [
+     "+0.00",
+     "-2.00"
+    ]
+   },
+   {
+    "bundle": "{R,h}",
+    "parity": "symmetric",
+    "tr": -4.0,
+    "det": 3.0,
+    "disc": 4.0,
+    "fork": "hyperbolic",
+    "eigenvalues": [
+     "-1.00",
+     "-3.00"
+    ]
+   },
+   {
+    "bundle": "[h,P]",
+    "parity": "asymmetric",
+    "tr": 0.0,
+    "det": -3.0,
+    "disc": 12.0,
+    "fork": "hyperbolic",
+    "eigenvalues": [
+     "-1.73",
+     "+1.73"
+    ]
+   },
+   {
+    "bundle": "{I,J}",
+    "parity": "symmetric",
+    "tr": 0.0,
+    "det": -4.0,
+    "disc": 16.0,
+    "fork": "hyperbolic",
+    "eigenvalues": [
+     "+2.00",
+     "-2.00"
+    ]
+   },
+   {
+    "bundle": "{I,h}",
+    "parity": "symmetric",
+    "tr": 0.0,
+    "det": -4.0,
+    "disc": 16.0,
+    "fork": "hyperbolic",
+    "eigenvalues": [
+     "+2.00",
+     "-2.00"
+    ]
+   },
+   {
+    "bundle": "{R,P}",
+    "parity": "asymmetric",
+    "tr": 6.0,
+    "det": 5.0,
+    "disc": 16.0,
+    "fork": "hyperbolic",
+    "eigenvalues": [
+     "+1.00",
+     "+5.00"
+    ]
+   },
+   {
+    "bundle": "{I,R}",
+    "parity": "symmetric",
+    "tr": 2.0,
+    "det": -4.0,
+    "disc": 20.0,
+    "fork": "hyperbolic",
+    "eigenvalues": [
+     "-1.24",
+     "+3.24"
+    ]
+   },
+   {
+    "bundle": "{R,R}",
+    "parity": "symmetric",
+    "tr": 6.0,
+    "det": 4.0,
+    "disc": 20.0,
+    "fork": "hyperbolic",
+    "eigenvalues": [
+     "+0.76",
+     "+5.24"
+    ]
+   },
+   {
+    "bundle": "[R,N]",
+    "parity": "symmetric",
+    "tr": 0.0,
+    "det": -5.0,
+    "disc": 20.0,
+    "fork": "hyperbolic",
+    "eigenvalues": [
+     "+2.24",
+     "-2.24"
+    ]
+   }
+  ],
+  "tower": {
+   "is": "the framework is the bundle operation iterated — a self-similar tower",
+   "levels": {
+    "gen 0": "?=0  — the void ([A,A]=0, universal self-negation)",
+    "gen 1": "P  — the seed (the first fixed point above ?, fixed by ν(R)=I)",
+    "gen 2": "{I,R,N,J,h,P}  — the primitives (bundles of P+τ; R,N generate M₂)",
+    "gen 3": "{…14…}  — the DNA library (bundles of gen 2)",
+    "gen N": "the 75 records, bundled — and the apex is their bundle",
+    "limit": "M₂(ℝ)  — the closure (continuum)"
+   },
+   "invariant": "parity → fork → constant holds at every level; same bundle op, every scale"
+  },
+  "algebra": {
+   "primitives": "I R N J h P",
+   "affirm": "{A,B} = A·B + B·A",
+   "negate": "[A,B] = A·B − B·A",
+   "nesting": "{R,{R,N}}, [{R,N},P] — bundles-of-bundles",
+   "scalars_sums": "{N,N}/2, 2{R,N}, -I, {N,N}/2 + [R,N]",
+   "records": "a record's matrix is a bundle expression; e.g. i_squared_phi_psi = {N,N}/2",
+   "reductive_forms": "I = −{N,N}/2 · −I = {N,N}/2 · h = [N,J]/2 · N = {R,N}"
+  },
+  "information": {
+   "spectral": "invariant (tr/det/disc/eigenvalues) — the simple info, conjugation-class label",
+   "geometric": "eigenvectors/orientation/polar Q/singular values — read through the matrix; the complex info",
+   "simple_bundles": "integer lattice (the 14 + {I,R,N,J,h,P}); tightly related (disc in the 1+k² family)",
+   "complex_bundles": "free/irrational coefficients (φ,−1,√2…); fewer relations, more information; the spectrum hides what only the geometry shows",
+   "to_type": "decompress reports SIMPLE/COMPLEX and both information types"
+  }
+ },
+ "self_action": {
+  "is": "{R,·} and [R,·] — the two primitive self-actions; P = R + N",
+  "symmetric": "{R,·} = R·X + X·R   (Jordan / anticommutator) — production; modes generation(+√5), return(0)",
+  "antisymmetric": "[R,·] = R·X − X·R  (Lie / commutator / adjoint) — observation; mode observation(−√5)",
+  "spectrum": {
+   "+√5": "generation",
+   "0": "return (kernel; N lives here)",
+   "-√5": "observation"
+  },
+  "grade": "leaf(N.observation, R.generation, R.return) — observer-bit from N, producer-bits from R",
+  "burned": "P1/P2/P3 and 'L' were lossy names for these two self-actions and their eigenvalues.",
+  "acts": {
+   "symmetric {R,·}": "self-reference (R² = R + I, ν = I) — keeps the surplus instead of collapsing to R²=R",
+   "antisymmetric [R,·]": "self-negation (N² = −I, N⁴ = I) — squaring the residual returns the identity",
+   "synthesis": "P²=P because (R²=R+I) and (N²=−I) cancel: +I − I = 0, with {R,N}=N giving R+N."
+  },
+  "duality": {
+   "is": "defect ↔ enrichment, exact",
+   "operator": "Cartan θ(X) = −Xᵀ,  θ² = id  (forced by P ≠ Pᵀ)",
+   "enrichment": "symmetric / {·} / R / self-reference / +I",
+   "defect": "antisymmetric / [·] / N / self-negation / −I",
+   "exact": "AX = ½{A,X} + ½[A,X]; M₂ = Sym ⊕ Antisym; the +I and −I cancel to P²=P."
+  },
+  "template": {
+   "symmetric_R": {
+    "action": "{R,·} = R·X + X·R",
+    "type": "Jordan / anticommutator",
+    "axis": "production (R)",
+    "act": "self-reference (R²=R+I, ν=I)",
+    "reads_as": "enrichment (+I)"
+   },
+   "antisymmetric_N": {
+    "action": "[R,·] = R·X − X·R",
+    "type": "Lie / commutator (adjoint)",
+    "axis": "observation (N)",
+    "act": "self-negation (N²=−I, N⁴=I)",
+    "reads_as": "defect (−I)"
+   },
+   "modes_legend": {
+    "+sqrt5": "+√5 generation",
+    "0": "0 return",
+    "-sqrt5": "-√5 observation"
+   },
+   "note": "constant across all records — held once here. each record stores only its modes' lambda + verdict + homed data; the rest is derived."
+  }
+ }
+}
