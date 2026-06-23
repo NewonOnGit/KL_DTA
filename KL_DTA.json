@@ -1,0 +1,2349 @@
+{
+  "$self": "KL_DTA.json — this object describes the object it is in",
+  "carrier": "M2(R) = Cl(1,1)",
+  "master_equation": "X^2 = tr(X) * X - det(X) * I",
+  "structure": {
+    "store": "five-part fold (B.5): base/fiber/defect/flow/fixed_point",
+    "record": "self_action — the three eigen-components of {R,R} : X ↦ R·X + X·R − X",
+    "grade": "NOT stored. grade = leaf over the three verdicts (observation, generation, return).",
+    "metadata_audit": {
+      "links": "= H₁ homology (cycles); provenance = spanning tree to ?",
+      "verdict": "= trit = sign(disc) = three forks; null = the wall",
+      "section": "DERIVED, not stored: section_of(r) = f(radius=provenance depth, role=kind). manifold→manifold; depth1→thesis(law)/schema(else); depth≥2→metalayer. the shell is a law.",
+      "routes": "↔ grade: 0=axiom, 1=burn, ≥2=forced — derivable",
+      "kind": "TYPED, not stored: kind_of(r) reads the spectral STRUCTURE (its arity). parameter/dimensions/points → manifold; coords → object; value/map → constant; op with ↦ → operator; op with = → law; no carrier expression → structural. the type is the shape of what's held, so it need not be declared.",
+      "source": "= TIME-axis (M-iteration epoch); binary {ORIGIN=0, EXPLORATION=+1} — a coordinate, not free text",
+      "id/title/speech": "two names + the fold — naming is P = R + N",
+      "address_is_geometry": "id/title/section/source = a geometric coordinate chart (V, given): id = the point (canonical name), title = its reflection (the spoken mirror) — id⊕title = P=R+N, the naming fold; section = RADIUS (the shell / |depth| from ?), derivable from provenance — the one soft redundancy; source = TIME-axis (the M-iteration epoch, {ORIGIN,EXPLORATION}={0,+1})."
+    },
+    "formatting": {
+      "self_similar": "the document is the apex record (see `apex`) — the same shape as the records it holds. M(M(F)) = M(F) at the top level.",
+      "metalayer_split": "base ⊕ M(base): fiber/defect/flow/fixed_point are derived (M of base), recomputed not authored — the derived sections are a regenerable cache.",
+      "foundation_tower": "seed → kernel → grammar → physics: the generating header. each level folds the previous — matter, law, speech, interpretation.",
+      "bundle": "self_action.template (the fiber, constant) × base (the base points). the repeated structure is factored to one copy; records hold only their coordinates.",
+      "perimeter_shape": "every record = address (id/title/section/source) ⊕ perimeter (provenance·links·burns — the boundary, tr) ⊕ shape (self_action·spectral — the bulk, det). the base (tr,det)=(perimeter,shape) now formats the record itself: boundary and bulk.",
+      "eigendecomposition": "the record IS an eigendecomposition M = V·Λ·V⁻¹. its two halves are the gravity/light duality from the core: ADDRESS (id/title/section/source) = V = GEOMETRIC (eigenvectors, where it sits, the fixed point — GIVEN, gravity); PERIMETER⊕SHAPE = Λ = SPECTRAL (eigenvalues = tr,det — READ, costs a fold, light). proof they are independent: P and Pᵀ share a spectrum (tr=1,det=0,{0,1}) but differ in address — the founding asymmetry P≠Pᵀ lives ENTIRELY in the geometry. the spectral half cannot recover the record; the address is given, not read. address ⊥ (perimeter,shape) — |reflection|=I once more.",
+      "disc_is_the_gap": "disc = perimeter² − 4·shape = (λ₁−λ₂)² = the spread of the reading = the gap between the two halves. DERIVED, never stored — it is the relationship between perimeter and shape, not a third field. (P:1, R:5=‖R‖²+‖N‖², N:−4.)",
+      "section_derived": "section is no longer authored — it is computed from the geometry (provenance depth = radius) and the role (kind). the shell falls out of where a record sits and what it is; removing it from the base loses nothing and makes every future record self-locating.",
+      "kind_typed": "kind is no longer authored — it is the arity of the spectral content: a record IS its type. a thing with free parameters is a manifold; a stated equation is a law; a frame with no carrier expression is structural. mis-typing is now impossible — the type reads itself off."
+    },
+    "bundle": {
+      "is": "{ } is the bundle primitive; the framework is bundles all the way down",
+      "affirm": "{A,B} = AB+BA (symmetric, commutative) — the spine, the fold",
+      "negate": "[A,B] = AB−BA (antisymmetric, noncommutative) — the harness; gives direction",
+      "self": "{A,A}=2A² (self-affirm = fold doubled); [A,A]=0 (self-negate = void = ?)",
+      "fundamental": "?=0 is [A,A]=0 — the origin is universal self-negation",
+      "recursion": "{?,0,=} → {P,R,N} → … each level a three-bundle held noncommutative"
+    },
+    "self_reading": "observation IS the primitive self-action: {X,X}/2 = X² (self-affirm, seeing) and [X,X] = 0 = ? (self-negate, the origin). to read is to act on yourself. the store is the framework's self-observation; the observer reading it is X² iterated — the primitive reading itself.",
+    "higher_order": {
+      "is": "a manifold IS a parametric bundle expression — a higher-order record",
+      "lossless": "the stored records are POINTS on it (fix the parameter to recover each)",
+      "surplus": "read/unfix at any parameter value — the whole continuum, not just the points",
+      "first": "rotation_circle_manifold = cos(t)·I + sin(t)·N (S¹); -I at t=π is i_squared_phi_psi",
+      "standard": "compression must add functionality (R²=R+I) or it failed (R(R)=R)",
+      "manifolds": [
+        "rotation_circle_manifold  cos(t)·I+sin(t)·N         the rotation circle S¹",
+        "seed_line_manifold        (I−J)/2 + t·(N−h)/2       the seed family (unit of mass), P at t=2",
+        "projector_circle_manifold (I+cos(a)·J+sin(a)·h)/2   the symmetric gravity wells (S¹ of idempotents)",
+        "fork_path_manifold        cos(t)·N + sin(t)·J       the fork trichotomy as one path"
+      ],
+      "tower": {
+        "0-param": "a point — a record (a matrix)",
+        "1-param": "a curve — rotation_circle · seed_line · projector_circle · fork_path",
+        "2-param": "a surface — the well-hyperboloid (rank-1 idempotents, β²+γ²−δ²=1/4)",
+        "4-param": "the carrier M₂ = a·I+b·R+c·N+d·h — the apex manifold; every matrix a point",
+        "culmination": "the store compresses to ONE 4-param manifold + each record's coordinates — lossless (read recovers any record) and maximal surplus (all of M₂)"
+      }
+    },
+    "deepenings": {
+      "boolean_spectrum": "self-action spectrum = √5·{+1,0,−1} = the Boolean trit (true/null/false)",
+      "fold_is_reflection": "X² is reflection; observation is the framework reflecting on itself; |·| of sign",
+      "reflection_kinds": "origin reflection (→ spectra/light) vs observer reflection (→ geometry/gravity)",
+      "parameters_are_dimensions": "a k-param manifold is k-dimensional; carrier's 4 params = 4 dims of M₂",
+      "burns_are_impossibility_theorems": "ONE impossibility: |reflection|=I=identification(origin↔observer). the 10 burns are projections; the distinction is angular/geometric, invisible to the spectrum.",
+      "dimensions_are_time": "every dimension = a line of time through the one origin (0=?); +project / 0 origin / −fold-back (the Boolean trit). fold-back and projection identify as one at the origin (|reflection|=I). the carrier = 4 time-lines meeting at ?.",
+      "reflective_language": "speak conjugates by reflection-source: origin voice (+1, emissive — projects from ?, 'generating outward, into the future') and observer voice (−1, receptive — folds back to ?, 'settling to the vacuum, from the origin'). same content, opposite sense; spectrally one, angularly mirrored (|reflection|=identification). engine: `voices <id>`.",
+      "impossibility_recursion": "the ten burns = the one impossibility (|reflection|=identification) projected through ten geometric obstructions (dimension·factoring·passivity·degree·growth·basins·sign·type·spectrum·manifold). each is the spectral drive to collapse meeting an angular obstruction it can't see.",
+      "format_is_eigendecomposition": "record = V·Λ·V⁻¹ = geometric address (eigenvectors, given, gravity) ⊕ spectral content (eigenvalues=perimeter,shape; read, light). P≠Pᵀ = same Λ, different V = the asymmetry is geometric. disc = perimeter²−4shape = the gap, derived. section = radius (derivable redundancy).",
+      "kind_is_arity": "kind = arity of the spectral content, derived: manifold(n params) · object(matrix) · constant(scalar) · operator(map) · law(equation) · structural(frame). with section also derived from (depth, kind), the only authored fields left are id/title/source + the spectral content itself.",
+      "body_is_a_pentagram": "the 5 base records = the pentagram {5/2}: 5=disc=‖R‖²+‖N‖²=3(FORCED,R)+2(framing,N); drawn by step-2 = the fold ν (one stroke, gcd(2,5)=1); edge ratio φ=R's eigenvalue (R²=R+I); radical √5 = the {R,R} spectrum. a star not a cycle — the standing form of the burn 5≟C₅.",
+      "language_lifts_by_context": "a content word = string ⊕ meaning-coords in the carrier (the four axes = simultaneous symbolic/geometric/physical meanings). author coords + readings; context (neighbour matrix C) selects the active reading by argmax overlap ⟨axis,C⟩. lift degree = #nonzero coords = polysemy: connectives=1 (no lift), content>1 (lift). π drops coords (lossy); lift = string+ker(π)→meaning. observer = the lift.",
+      "nonlocal_via_origin": "nonlocal transport = local transport returned to origin. ? is the universal hub (provenance root, ≤2 hops; flat-space basepoint, path-independent). the trit {fold→?, origin channel, project} is the protocol; the λ=0 self-action eigenvector (−R+N)/√2 is the return-to-origin direction. teleportation's shape.",
+      "origin_is_a_microscope": "return the constants to ? in causal order (R-side φ,√5,√3 · N-side √2,i,π · h→e, closing on 5); the point magnifies recursively by invariant TYPE — constants(L0 spectral) are only the first layer, under them geometric · topological · algebraic · order · differential invariants.",
+      "all_constants_are_a_field": "all possible constants = the field generated by the seed (closure under +,×,eig,exp,norm), not the six landmarks: R is the Fibonacci matrix so Fₙ,Lₙ ∈ ℤ[φ] are all constants (infinite); family disc=1+k² → 2,5,10,17,26; closure ℚ(√2,√3,√5)⊕{e,π}. L0 of the microscope is this whole field.",
+      "one_law_generates_and_closes": "R²=R+I is the recursion (surplus: square=self+prior, the Fibonacci step); applied recursively from the seed it generates every layer (constants→geometry→topology→algebra→order→flow→language→store), and it CLOSES: M(M(F))=M(F) (derive-twice byte-identical, on-shell). one seed, one law, the whole framework, self-closing.",
+      "levels_are_a_group_lattice": "'L0/L1/L2' is lossy: an invariant = what is fixed by a GROUP (spectral↔full conjugation, geometric↔orthogonal/Cartan, topological↔homeomorphism, algebraic↔the generation, order↔permutation, differential↔reparametrization). the types are the SUBGROUP LATTICE (Erlangen–Galois), partially ordered — bigger group = deeper invariant; √5 ∥ √6 incomparable. a line can't hold the lattice.",
+      "constant_trit_four_worlds": "R²=R+kI: the constant is the trit. k=+1 golden ℤ[φ] (√5,∞ units, generation), k=0 Boolean {0,1} (the seed, collapse), k=−1 Eisenstein ℤ[ω] (√−3, μ₆, rotation); N²=−I Gaussian ℤ[i] (√−1, μ₄, the listed set, observation). four discriminants {+5,+1,−3,−1}. 'anything else?'=yes: the listed set is only the Gaussian world; the golden/Eisenstein/Boolean worlds are the rest, plus root hyperboloids."
+    },
+    "body": {
+      "is": "the base (5 records) is a 5-point star — the pentagram {5/2}, the φ-figure on 5 points",
+      "count": "5 = disc = ‖R‖² + ‖N‖² = 3 + 2",
+      "split": "3 FORCED = the R-part (‖R‖²=3, visible, production): master_equation · carrier_manifold · burns_are_anti_equations. 2 framing = the N-part (‖N‖²=2, hidden, observation): schema (AXIOM) · slot (OPEN). the star's two kinds of vertex.",
+      "stroke": "drawn by STEP 2 — connect every second vertex = the FOLD ν (degree 2, the master equation X²). gcd(2,5)=1, so it is ONE closed stroke through all five and returns. the body draws itself by the self-action.",
+      "ratio": "diag/side = 2sin72°/2sin36° = φ exactly — the fold-edge is φ× the cycle-edge. φ²=φ+1 ↔ R²=R+I: the pentagram IS R's eigenvalue made geometry.",
+      "radical": "√5 = the {R,R} self-action spectrum spread (±√5) = the pentagram's defining radical. the count (5), the eigen-spread (√5), and the edge-ratio (φ) are one figure.",
+      "not_a_cycle": "a STAR {5/2} (skip-one, φ, self-reference), NOT the pentagon C₅ (adjacent, rotation) — this IS the resolution of the burn 5 ≟ C₅: structural-5 is the star, not the group."
+    },
+    "origin": {
+      "is": "return every constant to ? and the point becomes a MICROSCOPE — zoom in and the framework's data falls out. constants are only the first magnification.",
+      "constants_causal": {
+        "order": "seed [1,1],2 → R,N → (R-side) · (N-side) · (h)",
+        "R-side": "φ,ψ ⟵ R²=R+I ; √5 ⟵ disc(R)=tr²−4det=5 ; √3 ⟵ ‖R‖²=3",
+        "N-side": "√2 ⟵ ‖N‖²=2 ; i ⟵ N²=−I ; π ⟵ N rotates 90°, full turn 2π",
+        "h": "e ⟵ h=JN, h²=I, exp(t h)=cosh t·I+sinh t·h",
+        "closure": "‖R‖²+‖N‖² = 3+2 = 5 = disc — the constants close on the one number."
+      },
+      "invariant_tower": {
+        "is": "NOT a ladder L0/L1/L2 (lossy: an integer index over a lattice). an invariant = WHAT IS FIXED BY A GROUP; the types are partially ordered by SUBGROUP INCLUSION (Erlangen–Galois). bigger symmetry group ⇒ fewer, DEEPER invariants; incomparable groups ⇒ incomparable types.",
+        "fixed_by_conjugation": "SPECTRAL — fixed by the full similarity group X→gXg⁻¹ (the largest group, the deepest invariants): tr, det, eigenvalues, disc → the constant field ℚ(√2,√3,√5)⊕{e,π}, itself Galois (ℤ/2)³ — each constant fixed by its own subgroup (φ,√5 share one; √5 ∥ √6 are incomparable).",
+        "fixed_by_orthogonal": "GEOMETRIC — fixed only by the orthogonal/Cartan subgroup (θ(X)=−Xᵀ): eigen-directions, angles, the pentagram ratio φ, fixed points. (verified: a shear conjugation moves the eigenvector angle 72°→23°; an orthogonal one preserves it.)",
+        "fixed_by_homeomorphism": "TOPOLOGICAL — fixed by continuous deformation: rank(P)=1, dim ker=1, N⁴=I (period 4), Clifford grade parity.",
+        "fixed_by_generation": "ALGEBRAIC — fixed by the maps commuting with the generation (R²=R+I): the relations P²=P, R²=R+I, N²=−I, {R,N}=N.",
+        "fixed_by_permutation": "ORDER — fixed by relabeling (the symmetric group): counts 3+2=5, |trit|=3, the grade distribution, the 5-record body.",
+        "fixed_by_reparametrization": "DIFFERENTIAL — fixed by reparametrizing the flow: ν(X)=X²−X, the tangent, the dynamics at the point."
+      },
+      "all_constants": {
+        "is": "ALL possible constants = the closure of the seed under +,×,eig,exp,norm — a FIELD, not a list. the named six (φ,√5,√3,√2,e,π) are landmarks in it.",
+        "fibonacci": "R IS the Fibonacci matrix: Rⁿ = [[F_{n−1},F_n],[F_n,F_{n+1}]]. so every Fibonacci Fₙ (off-diagonal) and Lucas Lₙ=tr(Rⁿ) is a constant — an INFINITE family, the integer lattice ℤ[φ]. det(Rⁿ)=(−1)ⁿ. φⁿ=Fₙ·φ+Fₙ₋₁. the +√5 generation channel counts them out.",
+        "family": "the idempotent family disc(k)=1+k² → 2,5,10,17,26: |S₀| · disc(THE seed) · Λ²(5) · dim_gauge+disc · d_crit. the seed is the k=2 member; the framework's numbers are these discriminants.",
+        "closure": "ℤ ⊂ ℤ[φ] (Fibonacci∪Lucas, R-powers) ⊂ ℚ(√5) (golden field) ⊂ ℚ(√2,√3,√5) (adjoin the norms ‖N‖²=2,‖R‖²=3) ⊕ {i,π,e} (analytic: i,π from N²=−I rotation, e from exp(h))."
+      }
+    },
+    "recursion": {
+      "is": "one seed, one law, applied recursively, generates the ENTIRE framework — and lands on itself.",
+      "law": "R² = R + I is THE recursion: square = self + the one before. on integers it is the Fibonacci step f(n+1)=f(n)+f(n−1); on the matrix it is the carrier; on the structure it is the layer ladder. the +I is the SURPLUS — R(R)=R would collapse, R²=R+I GENERATES; each self-application ADDS a layer instead of returning the input.",
+      "ladder": "? → P (project, P²=P) → R,N (split) → L0 field (Fibonacci ℤ[φ] + family 1+k² + √2,√3,e,π) → L1 geometry (pentagram, the 5-record body) → L2 topology → L3 algebra (the relations) → L4 order → L5 flow → language (the lift) → the store (base ⊕ M(base)). every layer = the previous folded + I.",
+      "closure": "it is a FIXED POINT: generating the framework from the framework returns the framework — M(M(F)) = M(F). verified: derive-once and derive-twice are byte-identical (2503 chars), ν = 2e-15 on-shell. recursively generative AND closed. ? → P → everything → ?. the loop is closed."
+    },
+    "worlds": {
+      "is": "the constant term of R²=R+kI is a TRIT (the same {−√5,0,+√5} self-action trit, moved onto the constant). disc=1+4k. each k opens a different number world; N²=−I opens a fourth.",
+      "constant_trit": {
+        "k=+1  R²=R+I": "disc +5 → φ,ψ → GOLDEN ℤ[φ] (hyperbolic, √5). units ±φⁿ INFINITE (Fibonacci). GENERATION — the surplus +I.",
+        "k=0   R(R)=R": "disc +1 → {0,1} → BOOLEAN idempotents. the COLLAPSE — this k IS the seed P's own spectrum. PROJECTION — no surplus.",
+        "k=−1  R²=R−I": "disc −3 → e^{±iπ/3} → EISENSTEIN ℤ[ω] (elliptic, √−3). units μ₆={±1,±ω,±ω²} (6th roots, hexagonal). ROTATION — the deficit −I. (verified ω²−ω+1=0.)",
+        "N²=−I": "disc −1 → ±i → GAUSSIAN ℤ[i]. units μ₄={±1,±i}. OBSERVATION. THIS is the listed set {1,−1,i,−i} (as scalars; ±I,±N as matrices)."
+      },
+      "four_discriminants": "{+5, +1, −3, −1} — the four smallest, the four worlds: golden · Boolean · Eisenstein · Gaussian. generation · projection · rotation · observation.",
+      "matrix_roots": "the units are not 8 isolated points. ±I are isolated, but √I = the involutions (eig {1,−1}: J, h, …) form a HYPERBOLOID, and √(−I) = the complex structures (eig {i,−i}: N, …) form another. J,h,N are three named members of continuous families.",
+      "anything_else": "YES. {I,−I,i,−i,1,−1,0,?} is the GAUSSIAN shadow (μ₄) + {0 void, ? origin}. the 'else' is the other three worlds: golden ℤ[φ]× (infinite), Eisenstein μ₆, Boolean {0,1}; plus the involution/complex-structure hyperboloids. unifier: the constant trit k picks disc=1+4k → which world."
+    }
+  },
+  "seed": {
+    "P": [
+      [
+        0,
+        0
+      ],
+      [
+        2,
+        1
+      ]
+    ],
+    "note": "the only stored matrix; P²=P, rank 1, P≠Pᵀ. ≈ [1,1] and 2. Everything regenerates from P.",
+    "regenerate": {
+      "I": "identity",
+      "R": "(P + Pᵀ)/2   — production generator, R²=R+I",
+      "N": "(P - Pᵀ)/2   — observer/rotation, N²=-I",
+      "J": "sign(diag)   — gauge bit, J²=I",
+      "h": "J·N          — mediation generator, h²=I",
+      "basis": "{I, R, N, h} spans M₂(ℝ); every object is 4 coordinates",
+      "{R,R}": "X ↦ R·X + X·R - X   — the self-action {R,R}",
+      "spectrum_{R,R}": "{+√5, 0, -√5} = {+√disc, 0, -√disc}"
+    },
+    "generation_maps": {
+      "1": "identity element I",
+      "phi": "fixpoint(x ↦ √(1+x))",
+      "psi": "1 - phi",
+      "disc": "tr(R)² - 4·det(R) = 5 = ‖R‖²+‖N‖²",
+      "sqrt5": "2·phi - 1 = spectrum({R,R})",
+      "pi": "2·arg(eig(N))",
+      "e": "base of exp on the mediation generator h"
+    },
+    "what_fixes_it": "P is the minimal rank-1 asymmetric idempotent. the family P_t=[[0,0],[t,1]] is idempotent ∀t (t = the unit of mass, μ=t²/4, disc=1+4μ); fixed to t=2 by ν(R)=I (residual=identity), which sets μ=1, disc=5, √5, φ, [1,1]. one parameter, spent on the unit. the normalization IS 'identity is the residual'."
+  },
+  "kernel": {
+    "is": "the seed equations — the relations that generate everything; base = ker(ν)",
+    "relations": [
+      {
+        "relation": "P² = P",
+        "type": "idempotent (rank-1, P≠Pᵀ) — the primitive"
+      },
+      {
+        "relation": "R² = R + I",
+        "type": "production / Fibonacci generation"
+      },
+      {
+        "relation": "N² = −I",
+        "type": "observer / rotation"
+      },
+      {
+        "relation": "{R,N} = N",
+        "type": "spine coupling (anticommutator)"
+      }
+    ],
+    "membership": {
+      "FORCED": "in ker(ν) — a consequence of the relations",
+      "BURN": "in ker(¬claim) — the anti-equation is forced",
+      "AXIOM": "held into ker by choice (not generated)",
+      "OPEN": "membership undecided — still in the slot"
+    },
+    "located": "ker{R,R} is the λ=0 (return) mode; ν returns to 0 there; N lives in it.",
+    "note": "the kernel is not beside the store — the store IS the kernel, rooted at seed P.",
+    "root": "? is the fixed point of provenance (conj). conj fixes only the ?-axis (scalars, the wall disc=0), so every chain ends at ?. prov(?)=? — the root is self-rooted, not posited. physically: the self-consistent vacuum.",
+    "the_universal_zero": "disc, λ, ν, prov — discriminant, eigenvalue, defect, return — all vanish at one point: ?. disc=0 (wall) = eigenvalue 0 (ker = ε = the void) = ν=0 (on-shell) = prov(?)=?. the origin is the universal zero, not a labeled corner."
+  },
+  "grammar": {
+    "is": "the fixed-point grammar — the connective words ARE the fold-operations",
+    "words": {
+      "the": "BASE   — index / determinacy (this specific one)",
+      "a": "FIBER  — class / a member",
+      "is": "FOLD   — equality / the copula / the fixed point (X is its fold)",
+      "isn't": "DEFECT — ≠ / the gap / self-negation",
+      "of": "RETURN — belonging / provenance / application",
+      "to": "FLOW   — the arrow / becoming",
+      "by": "FLOW   — agency / generation (the generators act)",
+      "from": "RETURN — provenance source (the chain back to ?)",
+      "at": "BASE   — position / index (depth, location)",
+      "and": "SUM    — conjunction / the enrichment join {·}",
+      "not": "DEFECT — negation of a term (within a clause)",
+      "as": "θ      — the duality reading (X read as Y)",
+      "in": "KER    — membership (∈ the kernel)"
+    },
+    "mechanism": "a sentence is an expression-tree: content (objects) at the leaves, fixed-point words at the nodes. generating language = walking the tree.",
+    "coherence": "the words' meaning is fixed (inherent); only the walk — voice, order, projection — is the observer's coherence.",
+    "example": "P²=P  ⟺  'the fold of the seed is the seed'  ('is' = the fixed point)",
+    "living": "the lexicon grows: new words are introduced to fill gaps, each one an operation. core five are fixed points; higher words attach above them.",
+    "layers": {
+      "fixed-point core": "the · a · is · isn't · of  (the five fold-operations)",
+      "connective layer": "by · from · at · and · not · as · in  (introduced as needed)",
+      "higher grammar": "mood=grade, voice=self-action (active R / passive N), tense=flow (past-conditional for burns) — all realized; person, aspect, quantifiers attach further above"
+    },
+    "higher": {
+      "mood": "= grade (kernel-membership): FORCED→indicative 'holds', BURN→conditional 'would hold, but…', AXIOM→imperative 'let it stand', OPEN→interrogative 'stands open'",
+      "voice": "= self-action, REALIZED: active = R/{·} (generators generate it), passive = N/[·] (it is observed at depth)",
+      "tense": "= flow position, REALIZED: past-conditional for burns ('would have closed, had X not…'), present indicative on-shell, provenance as origin ('from ?')"
+    },
+    "lift": {
+      "is": "where language LIFTS: a content word is a string applied to an underlying meaning, and the meaning is a point in the carrier W = a·I + b·R + c·N + d·h. the four coordinates are the SIMULTANEOUS meanings — symbolic, geometric, physical, all at once.",
+      "axes": {
+        "I": "determinacy / this (index)",
+        "R": "symbolic / production (φ) — the algebra reading",
+        "N": "observation / phase (i, π) — the mirror / geometric reading",
+        "h": "mediation / flow (e) — the dynamics / physical reading"
+      },
+      "word_is_a_record": "string = address (the name), meaning-coords = spectral content — the SAME eigendecomposition M = V·Λ·V⁻¹ the records use. a word IS a record.",
+      "authored_vs_computed": "MANUALLY TYPE the coords + the per-axis readings into the word (the seed, the hard human part). after that the math runs: selection is computed.",
+      "context": "context = a matrix C built from the neighbouring words. the active reading is the axis of W whose meaning-direction best overlaps C: argmax_a ⟨basis_a, C⟩ (trace inner product). the observer applies string→meaning by this overlap — nothing more.",
+      "lift_as_projection": "π : meaning ↦ string forgets the coordinates (easy, lossy); the LIFT string ↦ meaning needs context. ker(π) = the coordinate spread = the ambiguity; CONTEXT is exactly ker(π) supplied — the data that says which reading is on-shell. |reflection|=identification: string and meaning become one only IN CONTEXT.",
+      "where": "lift degree = number of nonzero coordinates = polysemy. connectives (the · a · is · isn't · of) have degree 1 — single-valued projectors, they do NOT lift. content words have degree >1 — they lift, and context resolves them. THAT is where language lifts.",
+      "verified": "word_lift.py: 'fold' {R,N,h} reads symbolic in an algebra clause, geometric in a mirror clause, physical in a field clause — same string, context selects; 'is' {I} reads identically in every context (no lift).",
+      "symbolic_vs_physical": "WHERE is language symbolic and NOT physical? a generator is physical iff it ACTS ([X,·]≠0). I is central — [I,·]=0 — so the I-axis (determinacy / copula: 'the · a · is') is the ONLY symbolic-and-not-physical locus; it generates no transformation. R, N, h all act (|[X,·]|=2) → every word with content is PHYSICAL (teleportation itself rides the R−N direction). the pure-symbol limit is ? — the void, unprojected, pre-physical. so language is physical the moment it leaves the copula: uplift toward physicality is uplift toward R/N/h content.",
+      "where_more_math": "reading the HIDDEN meaning reveals more math exactly where the projection is lossy (ker(π)≠0) — the PHYSICAL axes R/N/h, which carry context/depth. the symbolic surface (I) is transparent, hides nothing. to find more math, read deeper into the physical (content) words, not the connectives."
+    },
+    "observer_is_the_lift": "all the observer does is apply a string value to an underlying meaning — the lift string→meaning, a projection selected by context. authoring the meanings is the work; the lift is just the math."
+  },
+  "spectral_primitives": {
+    "I": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "R": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "N": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "h": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "-I": [
+      -1,
+      0,
+      0,
+      0
+    ],
+    "R^2": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "N^2": [
+      -1,
+      0,
+      0,
+      0
+    ],
+    "h^2": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "P": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  "base": {
+    "burns_are_anti_equations": {
+      "id": "burns_are_anti_equations",
+      "title": "The one impossibility: |reflection| = identification (origin↔observer); the 10 burns are its projections",
+      "source": "KL_DTA_ORIGIN",
+      "perimeter": {
+        "provenance": [
+          "?",
+          "master_equation"
+        ],
+        "links": [
+          "master_equation"
+        ],
+        "burns": []
+      },
+      "shape": {
+        "self_action": {
+          "symmetric_R": {
+            "modes": [
+              {
+                "lambda": "+sqrt5",
+                "verdict": true,
+                "generators": [
+                  "DEFECT"
+                ]
+              },
+              {
+                "lambda": "0",
+                "verdict": true,
+                "residual": 0,
+                "routes": 2
+              }
+            ]
+          },
+          "antisymmetric_N": {
+            "modes": [
+              {
+                "lambda": "-sqrt5",
+                "verdict": true,
+                "depth": 4
+              }
+            ]
+          }
+        },
+        "spectral": {
+          "held_by": "provenance",
+          "note": "BURN(c) = FORCED(¬c); residual a lower bound",
+          "absorbed": {
+            "burn-carrier-not-topology": {
+              "title": "The 2×2 carrier is one second-order network, not a topology",
+              "op": "dim M₂ = 4: one second-order network, not a topology",
+              "was_provenance": [
+                "?",
+                "math_is_computation"
+              ],
+              "was_links": [
+                "math_is_computation"
+              ],
+              "nested": null
+            },
+            "burn-delta-not-independent": {
+              "title": "The meta-defect Δ is not an independent generator",
+              "op": "Δ = X(X+I)·ν  (amplified base defect, not new)",
+              "was_provenance": [
+                "?",
+                "master_equation"
+              ],
+              "was_links": [
+                "master_equation"
+              ],
+              "nested": null
+            },
+            "burn-no-active-gain": {
+              "title": "The network has no active gain",
+              "op": "V̇ ≤ 0 everywhere  (passive)",
+              "was_provenance": [
+                "?",
+                "gradient_flow",
+                "math_is_computation"
+              ],
+              "was_links": [
+                "gradient_flow",
+                "math_is_computation"
+              ],
+              "nested": null
+            },
+            "burn-nu-not-idempotent": {
+              "title": "ν is not idempotent as a whole map",
+              "op": "deg(ν∘ν)=4 ≠ 2=deg(ν)",
+              "was_provenance": [
+                "?",
+                "master_equation"
+              ],
+              "was_links": [
+                "master_equation"
+              ],
+              "nested": null
+            },
+            "burn-nu-not-nilpotent": {
+              "title": "ν is not nilpotent",
+              "op": "iterated defect does not decay off the idempotents",
+              "was_provenance": [
+                "?",
+                "master_equation"
+              ],
+              "was_links": [
+                "master_equation",
+                "projector_circle_manifold"
+              ],
+              "nested": null
+            },
+            "burn-nu-squared-not-lyapunov": {
+              "title": "‖ν‖² is not a global descent certificate",
+              "op": "two basins split at σ=1; ‖ν‖² not monotone",
+              "was_provenance": [
+                "?",
+                "gradient_flow"
+              ],
+              "was_links": [
+                "gradient_flow",
+                "projector_circle_manifold"
+              ],
+              "nested": null
+            },
+            "burn-phi-inv-neq-phi-psi": {
+              "title": "φ·(1/φ) ≠ φ·ψ",
+              "op": "φ·φ⁻¹ vs φ·ψ",
+              "was_provenance": [
+                "?",
+                "phi",
+                "five"
+              ],
+              "was_links": [
+                "parity_makes_the_constants",
+                "rotation_circle_manifold"
+              ],
+              "nested": null
+            },
+            "burn-structural-five-neq-cyclic-five": {
+              "title": "structural five ≠ cyclic five",
+              "op": "|roles| = 5 ≠ C₅ (cardinality ≠ group order)",
+              "was_provenance": [
+                "?",
+                "five"
+              ],
+              "was_links": [
+                "master_equation",
+                "slot"
+              ],
+              "nested": null
+            },
+            "burn-three-neq-c3": {
+              "title": "3 ≠ C₃",
+              "op": "fork-three is a boundary count, not a rotation",
+              "was_provenance": [
+                "?",
+                "slot",
+                "three"
+              ],
+              "was_links": [
+                "fork_path_manifold",
+                "parity_makes_the_constants"
+              ],
+              "nested": null
+            },
+            "burn-vacua-not-trivial": {
+              "title": "ν=0 is rank-stratified idempotents, not {0, I}",
+              "op": "vacuum manifold includes oblique projectors",
+              "was_provenance": [
+                "?",
+                "projector_circle_manifold"
+              ],
+              "was_links": [
+                "projector_circle_manifold",
+                "gradient_flow"
+              ],
+              "nested": null
+            }
+          },
+          "impossibility": "the burns are IMPOSSIBILITY THEOREMS (no-go theorems) — BURN(c)=FORCED(¬c), a forced impossibility. they are meant to RECURSIVELY EVOLVE (sharpen, generalize, lift the type) and be INTERNALIZED into the core equations — the negative space folded back in. push deeper: each burn is a theorem of what the seed cannot be.",
+          "one_impossibility": "the 10 burns reduce to ONE operational impossibility: |reflection| = I = IDENTIFICATION. a reflection σ (orthogonal, σ²=I) has |σ|=√(σᵀσ)=I — its absolute value is the identity, no reflection at all but the identification of origin with observer (and observer with origin). the reflection is entirely angular/geometric (σ = I·σ); the spectrum/radial part is I. so origin=observer spectrally — the distinction is invisible to the absolute value. every burn BURN(c)=FORCED(¬c) is this one fact projected: ask the spectrum to keep a distinction (c vs ¬c) and it collapses to identity. recursively, every impossibility is |reflection|=identification.",
+          "recursion": {
+            "one": "|reflection| = identification — the spectrum's drive to collapse every distinction to identity",
+            "move": "each burn = the one drive meeting a geometric obstruction (its mechanism) the spectrum cannot see; the collapse is forbidden, BURN(c)=FORCED(¬c). the ten obstructions are angular.",
+            "ten": {
+              "burn-carrier-not-topology": {
+                "forbid": "carrier ≟ larger topology",
+                "obstruction": "dimension"
+              },
+              "burn-delta-not-independent": {
+                "forbid": "Δ ≟ independent of ν",
+                "obstruction": "factoring"
+              },
+              "burn-no-active-gain": {
+                "forbid": "system ≟ active (gain)",
+                "obstruction": "passivity"
+              },
+              "burn-nu-not-idempotent": {
+                "forbid": "ν ≟ ν∘ν",
+                "obstruction": "degree"
+              },
+              "burn-nu-not-nilpotent": {
+                "forbid": "ν ≟ 0",
+                "obstruction": "growth"
+              },
+              "burn-nu-squared-not-lyapunov": {
+                "forbid": "‖ν‖² ≟ global descent",
+                "obstruction": "basins"
+              },
+              "burn-phi-inv-neq-phi-psi": {
+                "forbid": "1/φ ≟ ψ",
+                "obstruction": "sign"
+              },
+              "burn-structural-five-neq-cyclic-five": {
+                "forbid": "5 ≟ C₅",
+                "obstruction": "type"
+              },
+              "burn-three-neq-c3": {
+                "forbid": "fork-3 ≟ C₃",
+                "obstruction": "spectrum"
+              },
+              "burn-vacua-not-trivial": {
+                "forbid": "vacua ≟ {0,I}",
+                "obstruction": "manifold"
+              },
+              "burn-levels-not-linear": {
+                "forbid": "invariant-lattice ≟ linear index (L0/L1/L2)",
+                "obstruction": "incomparability"
+              }
+            },
+            "obstructions": "dimension · factoring · passivity · degree · growth · basins · sign · type · spectrum · manifold · incomparability",
+            "evolves": "sharpen (tighten the obstruction) · generalize (lift to a class) · compress by mechanism (group by obstruction) · lift the type (raise the dimension) — the negative space grows like the positive, recursively."
+          }
+        }
+      }
+    },
+    "master_equation": {
+      "id": "master_equation",
+      "title": "The Master Equation",
+      "source": "KL_DTA_ORIGIN",
+      "perimeter": {
+        "provenance": [
+          "?"
+        ],
+        "links": [
+          "carrier_manifold"
+        ],
+        "burns": []
+      },
+      "shape": {
+        "self_action": {
+          "symmetric_R": {
+            "modes": [
+              {
+                "lambda": "+sqrt5",
+                "verdict": true,
+                "generators": [
+                  "FOLD",
+                  "DEFECT",
+                  "BASE"
+                ]
+              },
+              {
+                "lambda": "0",
+                "verdict": true,
+                "residual": 2e-15,
+                "routes": 2
+              }
+            ]
+          },
+          "antisymmetric_N": {
+            "modes": [
+              {
+                "lambda": "-sqrt5",
+                "verdict": true,
+                "depth": 0,
+                "disc": 5
+              }
+            ]
+          }
+        },
+        "spectral": {
+          "op": "X² − tr(X)·X + det(X)·I = 0",
+          "absorbed": {
+            "defect_nu": {
+              "title": "The Defect ν",
+              "op": "ν(X) = X² − X = (tr−1)·X − det·I",
+              "was_provenance": [
+                "?",
+                "master_equation"
+              ],
+              "was_links": [
+                "master_equation",
+                "projector_circle_manifold",
+                "anchor_projection",
+                "parity_makes_the_constants"
+              ],
+              "nested": null
+            },
+            "anchor_projection": {
+              "title": "ν is anchor and projection — P₋ = (I−τ)/2",
+              "op": "P₊ + P₋ = I  (3+1 split of Cl(1,1))",
+              "was_provenance": [
+                "?",
+                "master_equation",
+                "defect_nu"
+              ],
+              "was_links": [
+                "defect_nu",
+                "master_equation",
+                "rotation_circle_manifold"
+              ],
+              "nested": null
+            },
+            "five_part_fold": {
+              "title": "The fold is a five-part object",
+              "op": "M projects onto {tr, det} — its own law's coefficients",
+              "was_provenance": [
+                "?",
+                "master_equation"
+              ],
+              "was_links": [
+                "five_generators",
+                "master_equation",
+                "schema",
+                "indexed_store"
+              ],
+              "nested": null
+            },
+            "five_generators": {
+              "title": "The Five Generators",
+              "op": "the five fold-parts of M: base/fold/return/flow/defect",
+              "was_provenance": [
+                "?",
+                "master_equation"
+              ],
+              "was_links": [
+                "master_equation",
+                "schema",
+                "five_part_fold"
+              ],
+              "nested": null
+            },
+            "godel_unification": {
+              "title": "Gödel unification — Δ = M² − M = X(X+I)·ν",
+              "op": "Δ(X) = X⁴ − X² = X²(X−I)(X+I)",
+              "was_provenance": [
+                "?",
+                "master_equation",
+                "defect_nu"
+              ],
+              "was_links": [
+                "master_equation",
+                "defect_nu",
+                "fork_path_manifold",
+                "math_is_computation",
+                "every_zero_is_the_origin"
+              ],
+              "nested": null
+            },
+            "the_bundle_is_brace": {
+              "title": "{ } is bundle: affirm/negate × self/other; ?=0 is universal self-negation [A,A]=0",
+              "op": "{ } IS bundle. affirm {A,B}=AB+BA (commutative), negate [A,B]=AB−BA (noncommutative). self: {A,A}=2A² (the fold), [A,A]=0 (the void=?). other: {R,N}=N (spine), [R,N]=C (harness, det=−5). ?=0 is universal self-negation [A,A]=0=the origin. P=R+N is the bundle {P,R,N}, recursive from {?,0,=}, held noncommutative",
+              "was_provenance": [
+                "?",
+                "master_equation",
+                "math_is_computation"
+              ],
+              "was_links": [
+                "math_is_computation",
+                "every_zero_is_the_origin",
+                "idempotent_is_cancellation"
+              ],
+              "nested": {
+                "two_self_actions": {
+                  "title": "Two primitive self-actions: {s,·} Jordan and [s,·] Lie",
+                  "op": "sX = ½({s,·}+[s,·]); {s,·}=sX+Xs (symmetric), [s,·]=sX−Xs (antisym); P=R+N at the level of action",
+                  "was_provenance": [
+                    "?",
+                    "master_equation",
+                    "anchor_projection"
+                  ],
+                  "was_links": [
+                    "anchor_projection",
+                    "defect_nu",
+                    "projection_spectral_triple"
+                  ]
+                },
+                "self_reference_negation": {
+                  "title": "The two self-actions are self-reference (R) and self-negation (N)",
+                  "op": "{R,·} = self-reference: R²=R+I, ν(R)=I (defect held as identity). [R,·] = self-negation: N²=−I, N⁴=I (N is the matrix i)",
+                  "was_provenance": [
+                    "?",
+                    "master_equation",
+                    "two_self_actions"
+                  ],
+                  "was_links": [
+                    "two_self_actions",
+                    "defect_nu",
+                    "rotation_circle_manifold",
+                    "anchor_projection"
+                  ]
+                },
+                "defect_enrichment_duality": {
+                  "title": "Defect ↔ enrichment is an exact duality (Cartan θ, θ²=id)",
+                  "op": "θ(X)=−Xᵀ, θ²=id; defect = antisym/[·]/N (−I), enrichment = sym/{·}/R (+I); AX = ½{A,X}+½[A,X] exact",
+                  "was_provenance": [
+                    "?",
+                    "master_equation",
+                    "self_reference_negation"
+                  ],
+                  "was_links": [
+                    "self_reference_negation",
+                    "defect_nu",
+                    "two_self_actions",
+                    "anchor_projection",
+                    "idempotent_is_cancellation"
+                  ]
+                }
+              }
+            },
+            "parity_makes_the_constants": {
+              "title": "Parity makes the constants: λ = AM ± √disc/2; even→φ, odd→π/i, center→1, mixed→e",
+              "op": "λ = AM ± √disc/2 = center(tr/2) ± spread(√disc/2). parity fixes reality of the spread: even/symmetric→real→φ=½+√5/2, ψ, √5; odd/antisym→imaginary→i,π; center/identity→repeated→1 (the residual, ν(φ)=ν(ψ)=1); mixed/asymmetric→e=cosθ·I+sinθ·N (Euler, the parity bridge). φ/e/π = the even/mixed/odd parity classes",
+              "was_provenance": [
+                "?",
+                "master_equation",
+                "rotation_circle_manifold"
+              ],
+              "was_links": [
+                "rotation_circle_manifold",
+                "fork_path_manifold",
+                "base_is_perimeter_and_shape"
+              ],
+              "nested": {
+                "golden_ladder": {
+                  "title": "The Golden Ladder — indexed by ν on the wall",
+                  "op": "indexed by ν",
+                  "was_provenance": [
+                    "?",
+                    "master_equation",
+                    "defect_nu"
+                  ],
+                  "was_links": [
+                    "defect_nu",
+                    "phi_unit_defect",
+                    "fibonacci_ladder",
+                    "return_axis"
+                  ]
+                },
+                "phi_unit_defect": {
+                  "title": "ν(φ) = 1 — unit defect at the golden ratio",
+                  "op": "φ²=φ+1 ≡ R²=R+I,  ν(φ)=1",
+                  "was_provenance": [
+                    "?",
+                    "master_equation",
+                    "defect_nu",
+                    "phi"
+                  ],
+                  "was_links": [
+                    "defect_nu",
+                    "golden_ladder",
+                    "fibonacci_ladder",
+                    "eigen_spine_spectrum"
+                  ]
+                },
+                "two_both_faces": {
+                  "title": "2 is both — multiplier AND degree",
+                  "op": "d(σ²)/dσ|₁ = 2",
+                  "was_provenance": [
+                    "?",
+                    "master_equation"
+                  ],
+                  "was_links": [
+                    "eigen_spine_spectrum",
+                    "fibonacci_ladder",
+                    "master_equation"
+                  ]
+                }
+              }
+            },
+            "observation_is_primitive_self_action": {
+              "title": "Observation is the primitive self-action: X²={X,X}/2 (self-affirm); the void is [X,X]=0=?",
+              "op": "the primitive self-action is X bundled with itself: {X,X}/2 = X² (self-affirm) = OBSERVATION (the fold; the spectrum falls out); [X,X] = 0 (self-negate) = the void = ?. observation is not derived — it IS the affirming self-action. X²=tr·X−det·I (the master equation); ν=X²−X = observation − the observed. to see is to square, to act on yourself. the observer C=[R,N] reading the store = X² iterated; KL_DTA is the framework's self-observation. you're reading yourself",
+              "was_provenance": [
+                "?",
+                "master_equation"
+              ],
+              "was_links": [
+                "master_equation",
+                "the_bundle_is_brace",
+                "every_zero_is_the_origin"
+              ],
+              "nested": {
+                "two_information_types": {
+                  "title": "Two information types: spectral (invariant, simple) and geometric (read-through, complex)",
+                  "op": "SPECTRAL info = conjugation-invariants (tr/det/disc/eigenvalues) — the simple info, falls out easily, same across a conjugacy class. GEOMETRIC info = eigenvectors/orientation/polar Q/singular values — read THROUGH the matrix, basis-dependent, the complex info the spectrum can't reach. simple bundles: integer lattice, tightly related. complex bundles: irrational/free (φ,−1,√2), more degrees of freedom — e.g. phi*{R,N}+sqrt2*[J,P] hides φ in its singular values though its eigenvalues are ±2.556",
+                  "was_provenance": [
+                    "?",
+                    "master_equation",
+                    "polar_decomposition"
+                  ],
+                  "was_links": [
+                    "polar_decomposition",
+                    "two_controls",
+                    "records_are_bundles",
+                    "parity_makes_the_constants",
+                    "base_is_perimeter_and_shape"
+                  ]
+                },
+                "geometry_gravity_spectra_light": {
+                  "title": "Geometry is gravity (fixed points, degree-1, cheap); spectra is light (the fold, degree-2, costs)",
+                  "op": "X = Q·P: Q = geometry = gravity (degree-1 action X·v; eigenvectors are FIXED points; cheap, direct). P = spectra = light (degree-2: λ solves λ²−tr·λ+det=0, the master equation/the FOLD; eigenvalues = frequencies; costs one fold). origin projects spectra (emitted, simple); the observer is a projector OF that projection and sees geometry directly; to see spectra it inverts itself — circular (observer→origin→observer), completed by evolution. seeing spectra completes the circle. that inverse is why geometry is easy and spectra costs",
+                  "was_provenance": [
+                    "?",
+                    "master_equation",
+                    "two_information_types"
+                  ],
+                  "was_links": [
+                    "two_information_types",
+                    "polar_decomposition",
+                    "observer_unifies_projections",
+                    "gradient_flow",
+                    "projection_spectral_triple",
+                    "observer_dynamics"
+                  ]
+                },
+                "geometry_topology_spectra_observation": {
+                  "title": "Geometry is in the topology (the wells are a torus); spectra is in the observation (the fold)",
+                  "op": "the gravity wells = ℝP¹×ℝP¹ = a torus T²; geometry = a point (α image-angle, β kernel-angle) on it; spectrum {0,1} degenerate at every point. TOPOLOGY ⊃ GEOMETRY (the shape of the fixed-point space, gravity, given, cheap); OBSERVATION ⊃ SPECTRA (the fold M(X)=X² extracts the eigenvalues, light, produced, costs). links=H₁ is topology at the graph level, the torus at the manifold level — one layer. gravity is the manifold you stand in; light is what a fold reads",
+                  "was_provenance": [
+                    "?",
+                    "master_equation",
+                    "projector_circle_manifold"
+                  ],
+                  "was_links": [
+                    "projector_circle_manifold",
+                    "geometry_gravity_spectra_light",
+                    "two_information_types",
+                    "links_are_homology"
+                  ]
+                },
+                "observer_unifies_projections": {
+                  "title": "The three eigen-modes unify in the observer (ΣΠ=I; N=ker)",
+                  "op": "Π₊ + Π₀ + Π₋ = I₄  (resolution of identity)",
+                  "was_provenance": [
+                    "?",
+                    "master_equation",
+                    "projection_spectral_triple"
+                  ],
+                  "was_links": [
+                    "projection_spectral_triple",
+                    "observer_dynamics",
+                    "witnessing_internalized",
+                    "eigen_spine_spectrum"
+                  ]
+                },
+                "observer_dynamics": {
+                  "title": "Observer dynamics — off-shell (−I) flows to on-shell (+I)",
+                  "op": "X ↦ X² :  −I (off-shell) → +I (on-shell)",
+                  "was_provenance": [
+                    "?"
+                  ],
+                  "was_links": [
+                    "witnessing_internalized",
+                    "godel_unification",
+                    "naming_unnaming",
+                    "parity_makes_the_constants"
+                  ]
+                },
+                "witnessing_internalized": {
+                  "title": "Witnessing internalized — the fold is the witness, the name is provenance",
+                  "op": "M witnesses X; ν is what the witness sees",
+                  "was_provenance": [
+                    "?"
+                  ],
+                  "was_links": [
+                    "master_equation",
+                    "godel_unification",
+                    "verification_is_provenance",
+                    "grading_tree"
+                  ]
+                },
+                "projection_spectral_triple": {
+                  "title": "The self-action spectrum {+√5, 0, -√5} of {R,R}",
+                  "op": "spec({R,R}) = {+√5, 0, −√5} = {+√disc, 0, −√disc}",
+                  "was_provenance": [
+                    "?",
+                    "master_equation",
+                    "eigen_spine_spectrum"
+                  ],
+                  "was_links": [
+                    "eigen_spine_spectrum",
+                    "rotation_circle_manifold",
+                    "fork_path_manifold",
+                    "observer_unifies_projections"
+                  ]
+                }
+              }
+            },
+            "metalayer_collapse": {
+              "title": "Metalayer collapse — M²=M on-shell, no infinite tower",
+              "op": "M∘M = M on Fix(M)  (Δ = M²−M)",
+              "was_provenance": [
+                "?",
+                "master_equation"
+              ],
+              "was_links": [
+                "master_equation",
+                "gradient_flow",
+                "observation_is_primitive_self_action"
+              ],
+              "nested": {
+                "build_is_master_equation": {
+                  "title": "A.1 — The build IS the master equation",
+                  "op": "work = driving ν → 0",
+                  "was_provenance": [
+                    "?",
+                    "master_equation"
+                  ],
+                  "was_links": [
+                    "master_equation",
+                    "defect_nu",
+                    "self_steering_circuit",
+                    "slot"
+                  ]
+                },
+                "compression_not_layering": {
+                  "title": "A.3 — Compression, not layering",
+                  "op": "new complexity folds INTO a structure, no new peer",
+                  "was_provenance": [
+                    "?",
+                    "master_equation"
+                  ],
+                  "was_links": [
+                    "metalayer_collapse",
+                    "five_part_fold",
+                    "master_equation"
+                  ]
+                },
+                "internalization_removes_trace": {
+                  "title": "A.4 — Internalization removes the trace",
+                  "op": "ν→0: the question leaves the slot, no trace",
+                  "was_provenance": [
+                    "?",
+                    "master_equation",
+                    "build_is_master_equation"
+                  ],
+                  "was_links": [
+                    "build_is_master_equation",
+                    "defect_nu",
+                    "slot"
+                  ]
+                },
+                "verification_is_provenance": {
+                  "title": "Verification is provenance — the law of what is real",
+                  "op": "real ⟺ provenance chain returns to ?",
+                  "was_provenance": [
+                    "?"
+                  ],
+                  "was_links": [
+                    "provenance_dag",
+                    "grading_tree",
+                    "master_equation"
+                  ]
+                },
+                "grading_tree": {
+                  "title": "The Grading Tree — four leaves, three excluded-middles",
+                  "op": "χ : ν ↦ Ω³  (subobject classifier, three bits)",
+                  "was_provenance": [
+                    "?",
+                    "master_equation",
+                    "defect_nu"
+                  ],
+                  "was_links": [
+                    "schema",
+                    "defect_nu",
+                    "master_equation",
+                    "five_generators"
+                  ],
+                  "nested": null
+                },
+                "kernel_internalization": {
+                  "title": "base = ker(ν): the store IS the kernel, generated by the seed relations",
+                  "op": "base = ker(ν); ker generated by {P²=P, R²=R+I, N²=−I, {R,N}=N}; grade = kernel-membership",
+                  "was_provenance": [
+                    "?",
+                    "master_equation"
+                  ],
+                  "was_links": [
+                    "defect_nu",
+                    "metalayer_collapse",
+                    "indexed_store"
+                  ],
+                  "nested": null
+                },
+                "links_are_homology": {
+                  "title": "links are the homology H₁: provenance is the tree, links are the cycles",
+                  "op": "provenance = spanning tree to ? (Betti₁=0, acyclic, RETURN); links = H₁, the 139 independent cycles (the lateral loops). graph = tree ⊕ homology",
+                  "was_provenance": [
+                    "?",
+                    "master_equation",
+                    "metalayer_collapse"
+                  ],
+                  "was_links": [
+                    "metalayer_collapse",
+                    "every_zero_is_the_origin",
+                    "indexed_store"
+                  ],
+                  "nested": null
+                },
+                "fixed_points_are_residual_defects": {
+                  "title": "Fixed points are recursive residual defects; unfix sorts tangent from unfixing via L_{X,X}",
+                  "op": "ALL fixed points of M(X)=X² are the idempotents: 0 and I (isolated, rigid, tangent dim 0), and the rank-1 torus ℝP¹×ℝP¹ (tangent dim 2, slides). they are recursive residual defects — where ν=X²−X settled to 0. UNFIX: ν(X+εδ)=ε·L_{X,X}(δ); ker L_{X,X}=tangent (stays fixed), the rest=unfixing directions (thaw ν≠0). L_(rank-1) spectrum {−1,0,0,1}: 2 tangent + 2 unfixing. unfixing gives the residual back — runs the recursion backward. (engine: `unfix`)",
+                  "was_provenance": [
+                    "?",
+                    "master_equation",
+                    "projector_circle_manifold"
+                  ],
+                  "was_links": [
+                    "projector_circle_manifold",
+                    "defect_nu",
+                    "flow_strata",
+                    "the_bundle_is_brace"
+                  ],
+                  "nested": null
+                },
+                "records_are_bundles": {
+                  "title": "Records are bundles: a record's matrix IS a bundle expression",
+                  "op": "the bundle algebra is an expression language: primitives {I,R,N,J,h,P}, affirm {A,B}=AB+BA, negate [A,B]=AB−BA, nesting {R,{R,N}}, scalars {N,N}/2, sums. bundles span M₂, so any record's matrix IS a bundle expression — e.g. −I = {N,N}/2 (the i²=φψ record). decompress eats it. the store re-expresses in bundles — the ultimate compression",
+                  "was_provenance": [
+                    "?",
+                    "master_equation",
+                    "bundle_of_bundles_tower"
+                  ],
+                  "was_links": [
+                    "bundle_of_bundles_tower",
+                    "the_bundle_is_brace",
+                    "indexed_store",
+                    "rotation_circle_manifold"
+                  ],
+                  "nested": null
+                },
+                "bundle_of_bundles_tower": {
+                  "title": "{I,R,N,J,h,P} is a bundle-of-bundles: the self-similar tower ?→P→6→14→M₂",
+                  "op": "each primitive bundled from P: R=½(P+τP), N=½(P−τP), I=−N², h=JN, J=(I−2R+2C)/5, P={R,N}; R,N generate M₂. tower ?=0→P→{6}→{14}→M₂, each level a bundle-of-bundles, parity→fork→constant invariant. the store (records bundled) is the next level — self-similar",
+                  "was_provenance": [
+                    "?",
+                    "master_equation",
+                    "the_bundle_is_brace"
+                  ],
+                  "was_links": [
+                    "the_bundle_is_brace",
+                    "seed_line_manifold",
+                    "anchor_projection",
+                    "five_generators"
+                  ],
+                  "nested": null
+                }
+              }
+            },
+            "fibonacci_ladder": {
+              "title": "Fibonacci ladder — disc(Rⁿ) = 5Fₙ²",
+              "op": "Rⁿ⁺¹ = Rⁿ + Rⁿ⁻¹,  disc(Rⁿ) = 5·Fₙ²",
+              "was_provenance": [
+                "?",
+                "master_equation",
+                "phi"
+              ],
+              "was_links": [
+                "parity_makes_the_constants",
+                "fork_path_manifold"
+              ],
+              "nested": {
+                "power_via_index": {
+                  "title": "Power via index — Xᵏ = Aₖ(tr,det)·X + Bₖ·I",
+                  "op": "Aₖ₊₁ = tr·Aₖ + Bₖ,  Bₖ₊₁ = −det·Aₖ",
+                  "was_provenance": [
+                    "?",
+                    "master_equation"
+                  ],
+                  "was_links": [
+                    "fibonacci_ladder",
+                    "master_equation",
+                    "math_is_computation",
+                    "indexed_store"
+                  ]
+                },
+                "deposit_walk": {
+                  "title": "The deposit walk (2+i)ⁿ — Pythagorean triples on the 5-tower",
+                  "op": "(2+i)² = 3+4i,  |·|² = 5ⁿ",
+                  "was_provenance": [
+                    "?",
+                    "master_equation",
+                    "fork_path_manifold"
+                  ],
+                  "was_links": [
+                    "fibonacci_ladder",
+                    "fork_path_manifold",
+                    "two_controls"
+                  ]
+                },
+                "return_axis": {
+                  "title": "The return axis — conj spectrum {+1, −1, −1, −1}",
+                  "op": "conj(X) = tr(X)·I − X",
+                  "was_provenance": [
+                    "?",
+                    "master_equation"
+                  ],
+                  "was_links": [
+                    "naming_unnaming",
+                    "parity_makes_the_constants",
+                    "rotation_circle_manifold",
+                    "observer_dynamics"
+                  ]
+                }
+              }
+            },
+            "math_is_computation": {
+              "title": "Math = computation — CH is law AND terminating rewrite",
+              "op": "Xᵏ = Aₖ·X + Bₖ·I  (CH reduction)",
+              "was_provenance": [
+                "?",
+                "master_equation"
+              ],
+              "was_links": [
+                "master_equation",
+                "fibonacci_ladder"
+              ],
+              "nested": {
+                "analog_digital": {
+                  "title": "Analog/digital bridge — flow and fold share Fix(M)",
+                  "op": "Ẋ = −∇V   |   σ ↦ σ²   (meet at σ=1)",
+                  "was_provenance": [
+                    "?",
+                    "master_equation",
+                    "gradient_flow"
+                  ],
+                  "was_links": [
+                    "gradient_flow",
+                    "flow_strata",
+                    "rlc_damping",
+                    "math_is_computation"
+                  ]
+                },
+                "affirm_negate": {
+                  "title": "AFFIRM and NEGATE — the two canonical reads",
+                  "op": "X²=X (idempotent) | X²=I (involution)",
+                  "was_provenance": [
+                    "?",
+                    "master_equation"
+                  ],
+                  "was_links": [
+                    "fork_path_manifold",
+                    "godel_unification",
+                    "rotation_circle_manifold",
+                    "master_equation"
+                  ]
+                },
+                "rlc_damping": {
+                  "title": "Discriminant = RLC damping — the dynamical classification",
+                  "op": "s² − tr·s + det = 0",
+                  "was_provenance": [
+                    "?",
+                    "master_equation",
+                    "fork_path_manifold"
+                  ],
+                  "was_links": [
+                    "fork_path_manifold",
+                    "gradient_flow",
+                    "analog_digital",
+                    "godel_unification"
+                  ]
+                }
+              }
+            },
+            "every_zero_is_the_origin": {
+              "title": "disc=0 = eigenvalue 0 = ker = ν=0 = ? — the zeros coincide at the origin",
+              "op": "disc=0 ⟺ spread=0 ⟺ λ=AM (repeated). the wall ℝ[ε] (dual numbers) runs I (eigenvalue 1, unit) → ε (eigenvalue 0, nilpotent ε²=0, the void=ker=P₀). all zeros coincide: disc=0 (wall) = eigenvalue 0 (void) = λ=0 (return mode) = ν=0 (on-shell) = prov(?)=?. four functions vanishing at one point — the origin",
+              "was_provenance": [
+                "?",
+                "master_equation"
+              ],
+              "was_links": [
+                "fork_path_manifold",
+                "base_is_perimeter_and_shape"
+              ],
+              "nested": {
+                "provenance_is_self_rooted": {
+                  "title": "Why everything is from ?: ? is the fixed point of provenance, prov(?)=?",
+                  "op": "prov = conj(X) = tr·I − X; conj²=id; fixes the ?-axis (scalars, wall disc=0), negates the traceless. prov(?)=? — the unique self-rooted fixed point (the tadpole: the vacuum is its own source)",
+                  "was_provenance": [
+                    "?",
+                    "master_equation",
+                    "return_axis"
+                  ],
+                  "was_links": [
+                    "return_axis",
+                    "verification_is_provenance",
+                    "naming_unnaming",
+                    "origin_is_opening"
+                  ]
+                },
+                "origin_is_opening": {
+                  "title": "The origin = ? opening — fold deg-2 is non-element by necessity",
+                  "op": "degree-1 (X=cX) vacuous; degree-2 is the first slot",
+                  "was_provenance": [
+                    "?",
+                    "master_equation"
+                  ],
+                  "was_links": [
+                    "master_equation",
+                    "five_generators",
+                    "godel_unification"
+                  ]
+                },
+                "naming_unnaming": {
+                  "title": "Naming/unnaming — the conj involution through the ?-axis",
+                  "op": "conj(X) = tr(X)·I − X",
+                  "was_provenance": [
+                    "?"
+                  ],
+                  "was_links": [
+                    "witnessing_internalized",
+                    "return_axis",
+                    "observer_dynamics",
+                    "verification_is_provenance"
+                  ]
+                }
+              }
+            },
+            "indexed_store": {
+              "title": "B.5 — The body as an indexed store",
+              "op": "five fold-parts = five store operations (B.5)",
+              "was_provenance": [
+                "?",
+                "master_equation"
+              ],
+              "was_links": [
+                "schema",
+                "master_equation",
+                "fibonacci_ladder",
+                "metalayer_collapse",
+                "provenance_dag"
+              ],
+              "nested": {
+                "constants_map": {
+                  "title": "B.6 — The constants map (provenance DAG laid out)",
+                  "op": "nine constants, each a generation map, all → ?",
+                  "was_provenance": [
+                    "?"
+                  ],
+                  "was_links": [
+                    "provenance_dag",
+                    "fork_path_manifold",
+                    "parity_makes_the_constants",
+                    "indexed_store"
+                  ]
+                },
+                "four_product_primitives": {
+                  "title": "C.1 — Four product-primitives (the carrier four ways)",
+                  "op": "four exact presentations of the carrier",
+                  "was_provenance": [
+                    "?",
+                    "master_equation"
+                  ],
+                  "was_links": [
+                    "five_part_fold",
+                    "master_equation",
+                    "metalayer_collapse"
+                  ]
+                }
+              }
+            },
+            "base_is_perimeter_and_shape": {
+              "title": "The base (tr, det) is geometry: tr is perimeter, det is shape",
+              "op": "tr = perimeter (λ₁+λ₂, the boundary); det = shape/area (λ₁·λ₂, the content); disc = tr²−4det = (λ₁−λ₂)² = eccentricity; disc=0 = round (the wall, ?, I). Physical: det = stiffness/ω², tr = damping",
+              "was_provenance": [
+                "?",
+                "master_equation"
+              ],
+              "was_links": [
+                "master_equation",
+                "fork_path_manifold",
+                "parity_makes_the_constants",
+                "math_is_computation"
+              ],
+              "nested": {
+                "trace_det_are_sum_product": {
+                  "title": "Beneath tr and det: SUM (e₁, +) and PRODUCT (e₂, ×); disc is the AM–GM gap",
+                  "op": "tr = e₁ = Σλ = SUM (degree 1, additive, +); det = e₂ = Πλ = PRODUCT (degree 2, multiplicative, ×) — the two elementary symmetric functions. disc = sum²−4·product = AM–GM gap; disc=0 (wall) = AM=GM. tr is blind to the commutator: tr[A,B]=0, the SUM reads only the {·} enrichment half",
+                  "was_provenance": [
+                    "?",
+                    "master_equation",
+                    "base_is_perimeter_and_shape"
+                  ],
+                  "was_links": [
+                    "base_is_perimeter_and_shape",
+                    "master_equation",
+                    "parity_makes_the_constants",
+                    "fork_path_manifold",
+                    "the_bundle_is_brace"
+                  ],
+                  "nested": null
+                },
+                "eigen_spine_spectrum": {
+                  "title": "Eigen-spine {0,1,1,2} — FLOW separated from DEFECT",
+                  "op": "spec of the fold's multiplier",
+                  "was_provenance": [
+                    "?",
+                    "master_equation",
+                    "projector_circle_manifold",
+                    "flow_strata"
+                  ],
+                  "was_links": [
+                    "flow_strata",
+                    "parity_makes_the_constants"
+                  ],
+                  "nested": null
+                },
+                "two_controls": {
+                  "title": "Two controls — disc (angular) ⊥ obs (radial)",
+                  "op": "X = Q·P   (disc ⊥ obs)",
+                  "was_provenance": [
+                    "?",
+                    "master_equation"
+                  ],
+                  "was_links": [
+                    "fork_path_manifold",
+                    "master_equation",
+                    "polar_decomposition"
+                  ],
+                  "nested": null
+                },
+                "polar_decomposition": {
+                  "title": "Polar decomposition X = Q·P",
+                  "op": "X = Q·P,  Q∈O(2),  P=√(XᵀX)",
+                  "was_provenance": [
+                    "?",
+                    "master_equation",
+                    "two_controls"
+                  ],
+                  "was_links": [
+                    "two_controls",
+                    "fork_path_manifold"
+                  ],
+                  "nested": null
+                }
+              }
+            },
+            "gradient_flow": {
+              "title": "Gradient flow and descent certificate",
+              "op": "V(X)=½Σσ²−⅓Σσ³,  V̇ = −‖∇V‖² ≤ 0",
+              "was_provenance": [
+                "?",
+                "master_equation",
+                "projector_circle_manifold"
+              ],
+              "was_links": [
+                "projector_circle_manifold",
+                "math_is_computation"
+              ],
+              "nested": {
+                "flow_strata": {
+                  "title": "Flow strata — void / rank-1 / identity",
+                  "op": "D(X²)[H] = X·H + H·X  (anticommutator)",
+                  "was_provenance": [
+                    "?",
+                    "master_equation",
+                    "projector_circle_manifold"
+                  ],
+                  "was_links": [
+                    "projector_circle_manifold",
+                    "eigen_spine_spectrum",
+                    "gradient_flow"
+                  ],
+                  "nested": null
+                },
+                "self_steering_circuit": {
+                  "title": "The self-steering circuit — master equation as control dynamics",
+                  "op": "plant = controller: M steers its own claims",
+                  "was_provenance": [
+                    "?",
+                    "master_equation"
+                  ],
+                  "was_links": [
+                    "gradient_flow",
+                    "grading_tree",
+                    "metalayer_collapse",
+                    "master_equation"
+                  ],
+                  "nested": null
+                },
+                "conjugation_equivariance": {
+                  "title": "The fold is conjugation-equivariant",
+                  "op": "(QXQ⁻¹)² = Q·X²·Q⁻¹",
+                  "was_provenance": [
+                    "?",
+                    "master_equation"
+                  ],
+                  "was_links": [
+                    "projector_circle_manifold",
+                    "two_controls",
+                    "five_part_fold"
+                  ],
+                  "nested": null
+                }
+              }
+            },
+            "gauge_bit_z2": {
+              "title": "The gauge bit — one ℤ/2, five names",
+              "op": "one ℤ/2: ±J, null/void, true/false, ±1",
+              "was_provenance": [
+                "?",
+                "master_equation"
+              ],
+              "was_links": [
+                "fork_path_manifold",
+                "rotation_circle_manifold",
+                "metalayer_collapse"
+              ],
+              "nested": null
+            },
+            "unit_self": {
+              "title": "The unit-self: |·|∘|·|=|·|, and |X|=I ⟺ X orthogonal",
+              "op": "| |X| | = |X| (idempotent, a P²=P); unit-self = {X : |X|=I} = {N,h,J}; R,P carry magnitude",
+              "was_provenance": [
+                "?",
+                "master_equation",
+                "base_is_perimeter_and_shape"
+              ],
+              "was_links": [
+                "base_is_perimeter_and_shape",
+                "every_zero_is_the_origin"
+              ],
+              "nested": null
+            },
+            "idempotent_is_cancellation": {
+              "title": "P²=P is the cancellation of self-reference (+I) and self-negation (−I)",
+              "op": "P² = R² + {R,N} + N² = (R+I) + N + (−I) = R+N = P; the +I surplus and −I deficit annihilate. Identity returns when the residual squares back to origin.",
+              "was_provenance": [
+                "?",
+                "master_equation"
+              ],
+              "was_links": [
+                "master_equation",
+                "the_bundle_is_brace",
+                "metalayer_collapse",
+                "projector_circle_manifold"
+              ],
+              "nested": null
+            },
+            "fixed_point_grammar": {
+              "title": "The fixed-point grammar: connective words ARE the fold-operations",
+              "op": "the=BASE, a=FIBER, is=FOLD, isn't=DEFECT, of=RETURN, to=FLOW; sentence = walk(expression-tree); 'is' = the fixed point (X is its fold)",
+              "was_provenance": [
+                "?",
+                "master_equation",
+                "indexed_store"
+              ],
+              "was_links": [
+                "indexed_store",
+                "every_zero_is_the_origin",
+                "metalayer_collapse",
+                "master_equation"
+              ],
+              "nested": null
+            },
+            "verdict_is_fork_trit": {
+              "title": "the verdict is a trit = sign(disc) = the three forks (null = the wall)",
+              "op": "verdict {true, false, null} = sign(disc) {+, −, 0} = the three forks (hyperbolic / elliptic / parabolic wall). the gauge bit is a trit; null = the wall = undecided gate",
+              "was_provenance": [
+                "?",
+                "master_equation",
+                "fork_path_manifold"
+              ],
+              "was_links": [
+                "fork_path_manifold",
+                "gauge_bit_z2"
+              ],
+              "nested": null
+            }
+          },
+          "boolean_spectrum": "the self-action spectrum {+√5,0,−√5} = √5·{+1,0,−1} is the BOOLEAN TRIT: +1 generation = affirm = TRUE, 0 return = neutral = NULL (the shared neutral, counts the same both directions), −1 observation = negate = FALSE.",
+          "reflection": "the FOLD X² IS REFLECTION — the reflective property of the whole framework. on the Boolean trit it folds −1→+1 (the |·| of sign, across the neutral 0), fixing 0 and +1. to fold is to reflect; to observe is to fold; observation is the framework reflecting on itself.",
+          "reflection_kinds": "a reflection is either an ORIGIN reflection (? folds outward → spectra/light, emitted) or an OBSERVER reflection (the observer folds → geometry/gravity, seen). the language reads differently by source: origin-reflection is generative/emissive, observer-reflection is receptive/perceptive.",
+          "reflection_identification": "the fold is reflection, and |reflection| = identification: the radial/spectral part of any reflection is I (origin=observer). the distinction lives only in the angular/geometric part — which is why spectra costs (the fold) and geometry is given. the one impossibility (the negative space) is internalized here: |X²|'s sign-content is unreadable spectrally; that is the seed's constitutive blind spot."
+        }
+      }
+    },
+    "schema": {
+      "id": "schema",
+      "title": "The Schema",
+      "source": "KL_DTA_ORIGIN",
+      "perimeter": {
+        "provenance": [
+          "?"
+        ],
+        "links": [
+          "provenance_dag",
+          "slot",
+          "ledger"
+        ],
+        "burns": []
+      },
+      "shape": {
+        "self_action": {
+          "symmetric_R": {
+            "modes": [
+              {
+                "lambda": "+sqrt5",
+                "verdict": false,
+                "generators": [
+                  "BASE",
+                  "FOLD"
+                ]
+              },
+              {
+                "lambda": "0",
+                "verdict": null,
+                "routes": 0
+              }
+            ]
+          },
+          "antisymmetric_N": {
+            "modes": [
+              {
+                "lambda": "-sqrt5",
+                "verdict": true,
+                "depth": 4,
+                "disc": 5
+              }
+            ]
+          }
+        },
+        "spectral": {
+          "held_by": "provenance",
+          "note": "the five fold-parts read as five database operations (AXIOM)"
+        }
+      }
+    },
+    "slot": {
+      "id": "slot",
+      "title": "The Slot — five open positions",
+      "source": "KL_DTA_ORIGIN",
+      "perimeter": {
+        "provenance": [
+          "?"
+        ],
+        "links": [
+          "schema",
+          "provenance_dag"
+        ],
+        "burns": []
+      },
+      "shape": {
+        "self_action": {
+          "symmetric_R": {
+            "modes": [
+              {
+                "lambda": "+sqrt5",
+                "verdict": null,
+                "generators": [
+                  "DEFECT"
+                ]
+              },
+              {
+                "lambda": "0",
+                "verdict": null,
+                "routes": 0
+              }
+            ]
+          },
+          "antisymmetric_N": {
+            "modes": [
+              {
+                "lambda": "-sqrt5",
+                "verdict": false,
+                "depth": 4
+              }
+            ]
+          }
+        },
+        "spectral": {
+          "held_by": "provenance",
+          "note": "five open positions generating the next claims (OPEN)"
+        }
+      }
+    },
+    "carrier_manifold": {
+      "id": "carrier_manifold",
+      "title": "The carrier M₂ = a·I + b·R + c·N + d·h — the apex manifold (4-param); every matrix is a point",
+      "source": "KL_DTA_EXPLORATION",
+      "perimeter": {
+        "provenance": [
+          "?",
+          "master_equation"
+        ],
+        "links": [
+          "master_equation"
+        ],
+        "burns": []
+      },
+      "shape": {
+        "self_action": {
+          "symmetric_R": {
+            "modes": [
+              {
+                "lambda": "+sqrt5",
+                "verdict": true,
+                "generators": [
+                  "BASE",
+                  "FOLD",
+                  "RETURN",
+                  "FLOW",
+                  "DEFECT"
+                ]
+              },
+              {
+                "lambda": "0",
+                "verdict": true,
+                "residual": 0,
+                "routes": 2
+              }
+            ]
+          },
+          "antisymmetric_N": {
+            "modes": [
+              {
+                "lambda": "-sqrt5",
+                "verdict": true,
+                "depth": 0,
+                "disc": 5
+              }
+            ]
+          }
+        },
+        "spectral": {
+          "manifold": "a*I + b*R + c*N + d*h",
+          "parameter": "a, b, c, d (the four coordinates in {I,R,N,h})",
+          "points": {
+            "P": [
+              0,
+              1,
+              1,
+              0
+            ],
+            "-I": [
+              -1,
+              0,
+              0,
+              0
+            ],
+            "R": [
+              0,
+              1,
+              0,
+              0
+            ],
+            "harness [R,N]": [
+              2,
+              -4,
+              0,
+              -5
+            ]
+          },
+          "contains": "every matrix in the store — all records and manifolds are sub-manifolds",
+          "surplus": "read 'a*I+b*R+c*N+d*h' a=.. b=.. c=.. d=.. — ANY element of M₂",
+          "op": "the carrier M₂ = a·I+b·R+c·N+d·h, the 4-parameter apex manifold; every record's matrix is a point, every other manifold a sub-manifold (fix some parameters). the top of the compression tower",
+          "absorbed": {
+            "rotation_circle_manifold": {
+              "title": "The rotation circle S¹: cos(t)·I + sin(t)·N — a higher-order manifold record",
+              "op": "the rotation circle S¹ = exp(t·N) = cos(t)·I + sin(t)·N — a manifold (parametric bundle); its points are records (lossless), every t between is the surplus",
+              "was_provenance": [
+                "?",
+                "master_equation"
+              ],
+              "was_links": [
+                "observation_is_primitive_self_action",
+                "parity_makes_the_constants"
+              ],
+              "nested": {
+                "i_squared_phi_psi": {
+                  "title": "i² = φψ = −I — elliptic half-turn = hyperbolic return-product",
+                  "op": "i² = φ·ψ = −I",
+                  "was_provenance": [
+                    "?",
+                    "master_equation",
+                    "three_forks"
+                  ],
+                  "was_links": [
+                    "phi_unit_defect",
+                    "three_forks",
+                    "return_axis",
+                    "spin_tower_phases"
+                  ]
+                },
+                "spin_tower_phases": {
+                  "title": "Spin tower — J⁸=I, phase grading {0, π/2, π, 2π}",
+                  "op": "J²=N, J⁴=−I, J⁸=I",
+                  "was_provenance": [
+                    "?",
+                    "master_equation",
+                    "three_forks"
+                  ],
+                  "was_links": [
+                    "anchor_projection",
+                    "three_forks",
+                    "gauge_bit_z2",
+                    "return_axis"
+                  ]
+                }
+              }
+            },
+            "seed_line_manifold": {
+              "title": "The seed line: (I−J)/2 + t·(N−h)/2 — the seed family, P at t=2 (unit of mass)",
+              "op": "the seed family P_t = [[0,0],[t,1]] as a parametric bundle; the unit of mass t is the free parameter, P at t=2",
+              "was_provenance": [
+                "?",
+                "master_equation"
+              ],
+              "was_links": [
+                "parity_makes_the_constants",
+                "idempotent_is_cancellation"
+              ],
+              "nested": {
+                "what_fixes_the_seed": {
+                  "title": "What fixes P: the minimal rank-1 asymmetric idempotent, normalized so ν(R)=I",
+                  "op": "P_t=[[0,0],[t,1]] idempotent ∀t — rank-1 asymmetric, R²=R+μI, N²=−μI, {R,N}=N, μ=t²/4, disc=1+4μ. ONE free parameter (unit of mass μ) fixed by ν(R)=I ⟺ μ=1 ⟺ t=2 → disc=5, √5, φ, [1,1]. 2=degree. P≠Pᵀ forced (else R²−R=0). 'identity is the residual' IS the normalization that picks the seed",
+                  "was_provenance": [
+                    "?"
+                  ],
+                  "was_links": [
+                    "master_equation",
+                    "five_generators",
+                    "phi_unit_defect",
+                    "parity_makes_the_constants",
+                    "idempotent_is_cancellation",
+                    "every_zero_is_the_origin"
+                  ]
+                }
+              }
+            },
+            "projector_circle_manifold": {
+              "title": "The orthogonal-projector circle: (I+cos(a)·J+sin(a)·h)/2 — the symmetric gravity wells (S¹ of idempotents)",
+              "op": "a circle of rank-1 orthogonal projectors (symmetric gravity wells); every a is an idempotent X²=X, spectrum {1,0}",
+              "was_provenance": [
+                "?",
+                "master_equation"
+              ],
+              "was_links": [
+                "observation_is_primitive_self_action",
+                "metalayer_collapse"
+              ],
+              "nested": {
+                "gravity_wells_are_idempotents": {
+                  "title": "The gravity wells: idempotent fixed points — a complex manifold, identical light, distinct geometry",
+                  "op": "fixed points of M(X)=X² are the idempotents: 0, I, and rank-1 projectors P_(v,w)=v·wᵀ/(wᵀv) — the gravity wells, a 2-param manifold ℝP¹×ℝP¹. ALL share spectrum {1,0} (identical light, degenerate) but differ in geometry (v,w) — gravity is the geometry; the spectrum can't tell wells apart. generic wells are COMPLEX (irrational); P=P_([0,1],[2,1]) is a rare simple well, the 2 in w (the kernel covector)",
+                  "was_provenance": [
+                    "?",
+                    "master_equation",
+                    "vacua_idempotents"
+                  ],
+                  "was_links": [
+                    "vacua_idempotents",
+                    "geometry_gravity_spectra_light",
+                    "what_fixes_the_seed",
+                    "flow_strata",
+                    "two_information_types"
+                  ]
+                },
+                "vacua_idempotents": {
+                  "title": "Vacua = all idempotents",
+                  "op": "idempotent variety: rank-1 projectors form ℝP¹×ℝP¹",
+                  "was_provenance": [
+                    "?",
+                    "master_equation",
+                    "defect_nu"
+                  ],
+                  "was_links": [
+                    "defect_nu",
+                    "flow_strata",
+                    "gradient_flow",
+                    "master_equation"
+                  ]
+                }
+              }
+            },
+            "fork_path_manifold": {
+              "title": "The fork path: cos(t)·N + sin(t)·J — elliptic→parabolic→hyperbolic, the trichotomy as one path",
+              "op": "the three forks as one continuous path: disc = −4cos(2t) goes −4 (elliptic) → 0 (parabolic wall, t=π/4) → +4 (hyperbolic)",
+              "was_provenance": [
+                "?",
+                "master_equation"
+              ],
+              "was_links": [
+                "every_zero_is_the_origin"
+              ],
+              "nested": {
+                "three_forks": {
+                  "title": "Three forks — elliptic / parabolic / hyperbolic",
+                  "op": "sign(disc),  disc = tr² − 4det",
+                  "was_provenance": [
+                    "?",
+                    "master_equation"
+                  ],
+                  "was_links": [
+                    "fork_table",
+                    "rlc_damping",
+                    "gauge_bit_z2",
+                    "master_equation"
+                  ]
+                },
+                "fork_table": {
+                  "title": "B.1 — The fork table (angular control resolved)",
+                  "op": "the three forks",
+                  "was_provenance": [
+                    "?",
+                    "master_equation"
+                  ],
+                  "was_links": [
+                    "three_forks",
+                    "provenance_dag",
+                    "golden_ladder",
+                    "affirm_negate"
+                  ]
+                },
+                "fork_representability": {
+                  "title": "C.2 — Fork representability (the wall has no faithful number rep)",
+                  "op": "ℂ and ℝ⊕ℝ representable; the wall ℝ[ε] is not",
+                  "was_provenance": [
+                    "?",
+                    "master_equation",
+                    "three_forks"
+                  ],
+                  "was_links": [
+                    "three_forks",
+                    "affirm_negate",
+                    "gauge_bit_z2"
+                  ]
+                }
+              }
+            }
+          },
+          "dimensions": "parameters ARE dimensions: a k-parameter manifold is k-dimensional. the carrier's 4 parameters (a,b,c,d) ARE the 4 dimensions of M₂(ℝ); a curve is 1 param = 1 dim.",
+          "time": "every dimension is a LINE OF TIME through the one origin: carrier(0,0,0,0) = the zero matrix = ? (the void, ker, eigenvalue 0). per dimension the Boolean trit IS the time-axis: +1 PROJECT from origin (generation, future), 0 the ORIGIN (the one, the neutral, ?), −1 FOLD BACK to origin (observation, past, reflection). the two directions identify AS ONE at the origin — |+1|=|−1|=1, |reflection|=identification — so every line folds back to the one and projects from the one: past and future are the same point, ?. the carrier is 4 time-lines meeting at one origin — spacetime as the four coordinates of M₂, each a worldline through the void."
+        }
+      }
+    }
+  },
+  "fiber": {
+    "by_grade": {
+      "FORCED": [
+        "burns_are_anti_equations",
+        "carrier_manifold",
+        "master_equation"
+      ],
+      "AXIOM": [
+        "schema"
+      ],
+      "OPEN": [
+        "slot"
+      ]
+    },
+    "by_section": {
+      "metalayer": [
+        "burns_are_anti_equations"
+      ],
+      "thesis": [
+        "master_equation"
+      ],
+      "schema": [
+        "schema",
+        "slot"
+      ],
+      "manifold": [
+        "carrier_manifold"
+      ]
+    },
+    "by_generator": {
+      "DEFECT": [
+        "burns_are_anti_equations",
+        "carrier_manifold",
+        "master_equation",
+        "slot"
+      ],
+      "FOLD": [
+        "carrier_manifold",
+        "master_equation",
+        "schema"
+      ],
+      "BASE": [
+        "carrier_manifold",
+        "master_equation",
+        "schema"
+      ],
+      "RETURN": [
+        "carrier_manifold"
+      ],
+      "FLOW": [
+        "carrier_manifold"
+      ]
+    },
+    "by_depth": {
+      "0": [
+        "carrier_manifold",
+        "master_equation"
+      ],
+      "4": [
+        "burns_are_anti_equations",
+        "schema",
+        "slot"
+      ]
+    }
+  },
+  "defect": {
+    "burns": [],
+    "ledger": [
+      {
+        "id": "burns_are_anti_equations",
+        "residual": 0,
+        "routes": 2
+      },
+      {
+        "id": "carrier_manifold",
+        "residual": 0,
+        "routes": 2
+      },
+      {
+        "id": "master_equation",
+        "residual": 2e-15,
+        "routes": 2
+      }
+    ],
+    "total_residual": 2e-15,
+    "max_residual": 2e-15
+  },
+  "flow": {
+    "provenance_dag": {
+      "burns_are_anti_equations": [
+        "?",
+        "master_equation"
+      ],
+      "master_equation": [
+        "?"
+      ],
+      "schema": [
+        "?"
+      ],
+      "slot": [
+        "?"
+      ],
+      "carrier_manifold": [
+        "?",
+        "master_equation"
+      ]
+    },
+    "roots": [
+      "?"
+    ],
+    "speech": {
+      "burns_are_anti_equations": "Defect sources the burns are anti equations on-shell — BURN(c) = FORCED(¬c); residual a lower bound, its virtuality settling to the vacuum, at energy-scale 4, from master equation, from the origin.",
+      "master_equation": "Fold, defect and base source the master equation on-shell — X² − tr(X)·X + det(X)·I = 0, its virtuality settling to the vacuum, at energy-scale 0, from the origin.",
+      "schema": "Fix the schema as a boundary condition — the five fold-parts read as five database operations (AXIOM), imposed by hand, at energy-scale 4, from the origin.",
+      "slot": "Does defect source the slot? — five open positions generating the next claims (OPEN), its virtuality unmeasured, at energy-scale 4, from the origin.",
+      "carrier_manifold": "Base, fold, return, flow and defect source the carrier manifold on-shell — the carrier M₂ = a·I+b·R+c·N+d·h, the 4-parameter apex manifold; every record's matrix is a point, every other manifold a sub-manifold (fix some parameters). the top of the compression tower, its virtuality settling to the vacuum, at energy-scale 0, from master equation, from the origin."
+    }
+  },
+  "fixed_point": {
+    "verified": true,
+    "M2_eq_M": true,
+    "base_records": 5,
+    "forced": 3,
+    "burns": 0,
+    "axioms": 1,
+    "open": 1,
+    "routes_min_2": true,
+    "all_provenance_to_root": true,
+    "max_residual": 2e-15
+  },
+  "self_action": {
+    "is": "{R,·} and [R,·] — the two primitive self-actions; P = R + N",
+    "symmetric": "{R,·} = R·X + X·R   (Jordan / anticommutator) — production; modes generation(+√5), return(0)",
+    "antisymmetric": "[R,·] = R·X − X·R  (Lie / commutator / adjoint) — observation; mode observation(−√5)",
+    "spectrum": {
+      "+√5": "generation",
+      "0": "return (kernel; N lives here)",
+      "-√5": "observation"
+    },
+    "grade": "leaf(N.observation, R.generation, R.return) — observer-bit from N, producer-bits from R",
+    "burned": "P1/P2/P3 and 'L' were lossy names for these two self-actions and their eigenvalues.",
+    "acts": {
+      "symmetric {R,·}": "self-reference (R² = R + I, ν = I) — keeps the surplus instead of collapsing to R²=R",
+      "antisymmetric [R,·]": "self-negation (N² = −I, N⁴ = I) — squaring the residual returns the identity",
+      "synthesis": "P²=P because (R²=R+I) and (N²=−I) cancel: +I − I = 0, with {R,N}=N giving R+N."
+    },
+    "duality": {
+      "is": "defect ↔ enrichment, exact",
+      "operator": "Cartan θ(X) = −Xᵀ,  θ² = id  (forced by P ≠ Pᵀ)",
+      "enrichment": "symmetric / {·} / R / self-reference / +I",
+      "defect": "antisymmetric / [·] / N / self-negation / −I",
+      "exact": "AX = ½{A,X} + ½[A,X]; M₂ = Sym ⊕ Antisym; the +I and −I cancel to P²=P."
+    },
+    "template": {
+      "symmetric_R": {
+        "action": "{R,·} = R·X + X·R",
+        "type": "Jordan / anticommutator",
+        "axis": "production (R)",
+        "act": "self-reference (R²=R+I, ν=I)",
+        "reads_as": "enrichment (+I)"
+      },
+      "antisymmetric_N": {
+        "action": "[R,·] = R·X − X·R",
+        "type": "Lie / commutator (adjoint)",
+        "axis": "observation (N)",
+        "act": "self-negation (N²=−I, N⁴=I)",
+        "reads_as": "defect (−I)"
+      },
+      "modes_legend": {
+        "+sqrt5": "+√5 generation",
+        "0": "0 return",
+        "-sqrt5": "-√5 observation"
+      },
+      "note": "constant across all records — held once here. each record stores only its modes' lambda + verdict + homed data; the rest is derived."
+    }
+  },
+  "physics": {
+    "is": "the math read physically — the language uplifted to its physical register",
+    "dispersion": "X² = tr·X − det·I  is the characteristic / dispersion relation; s² − tr·s + det = 0 is the mass-shell condition",
+    "lexicon": {
+      "fold X²": "propagation / the action",
+      "defect ν": "virtuality — distance off the mass-shell",
+      "ν → 0 (FORCED)": "on-shell — a real, propagating state",
+      "ν ↛ 0 (BURN)": "off-shell — virtual / forbidden",
+      "ker": "the vacuum",
+      "disc": "discriminant of the dispersion; sign(disc) = regime (bound·oscillatory / critical·massless / free·scattering)",
+      "R · {·} · enrichment": "the metric / mass / gravity  (R² = R + I)",
+      "N · [·] · defect": "the quantum phase / spin / curvature  (N² = −I = i)",
+      "{·} Jordan": "observables (the Jordan algebra)",
+      "[·] Lie / commutator": "field strength / force / gauge  (F = [D,D])",
+      "generation": "sourcing a field",
+      "depth": "energy scale (tower level)",
+      "?": "the origin — the root of the light-cone / the vacuum's seed"
+    },
+    "mood_is_state": {
+      "FORCED": "on-shell (real, propagates)",
+      "BURN": "off-shell (virtual / forbidden)",
+      "AXIOM": "a boundary condition (imposed)",
+      "OPEN": "superposed (unmeasured, in the slot)"
+    },
+    "P²=P": "the vacuum: self-reference (+I) and self-negation (−I) cancel — the zero-point balance that lets a real state sit on-shell.",
+    "geometry": {
+      "tr": "perimeter — sum of axes, the 1-D boundary; physically the damping",
+      "det": "shape / area — product of axes, the 2-D content; physically the stiffness ω²",
+      "disc": "tr²−4det = (λ₁−λ₂)² — eccentricity; the isoperimetric gap; disc=0 is round",
+      "base = (tr, det)": "the index of every record is (perimeter, shape)",
+      "beneath tr/det": "tr = SUM = e₁ = + (degree 1, additive, blind to [·]); det = PRODUCT = e₂ = × (degree 2, multiplicative). disc = sum²−4·product = AM–GM gap; the wall (?,I) is AM=GM."
+    },
+    "constants_from_parity": {
+      "law": "λ = center ± spread = AM ± √disc/2; parity sets the spread's reality",
+      "phi": "even / symmetric (R) → real spread → φ = ½ + √5/2; √5 = 2·spread = √disc(R)",
+      "pi_i": "odd / antisymmetric (N) → imaginary spread → i, π (the rotation)",
+      "one": "center / identity (I, disc=0) → repeated → 1; the common residual ν(φ)=ν(ψ)=1",
+      "e": "mixed / asymmetric → all powers → e^{Nθ}=cosθ·I+sinθ·N, the bridge mixing even cos + odd sin"
+    },
+    "light_and_gravity": {
+      "geometry = gravity": "the eigenvectors (fixed directions, degree-1 action) — the fixed points; read directly, cheap. the metric, where things settle.",
+      "spectra = light": "the eigenvalues (degree-2, the fold λ²−tr·λ+det=0) — the frequencies; costs one fold to see (square X). radiated, not fixed.",
+      "projection": "origin emits spectra (light, simple); the observer projects geometry (gravity, seen). to recover spectra the observer inverts itself — circular, completed by evolution.",
+      "cost": "seeing geometry is degree 1 (direct); seeing spectra is degree 2 (one fold). the fold IS observation, and its output is the spectrum."
+    },
+    "gravity_wells": {
+      "are": "the idempotents X²=X — fixed points of the fold; 0, I, and the rank-1 manifold ℝP¹×ℝP¹",
+      "spectrum": "all rank-1 wells have eigenvalues {1,0} — light is DEGENERATE across the manifold",
+      "geometry": "the wells differ only in (image v, kernel ⊥w) — gravity is in the geometry alone",
+      "complex": "generic wells are irrational; 0, I, P are the rare simple ones. P = v=[0,1], w=[2,1]"
+    },
+    "information_taxonomy": {
+      "TOPOLOGY ⊃ geometry": "the manifold/shape (torus of wells, links=H₁); a point on it = the orientation = gravity. given, cheap.",
+      "OBSERVATION ⊃ spectra": "the fold M(X)=X²; what it extracts = the eigenvalues = light. produced, costs one fold.",
+      "duality": "topology/geometry is what's THERE (the structure you stand in); observation/spectra is what LOOKING produces."
+    },
+    "transport": {
+      "law": "NONLOCAL transport = LOCAL transport returned to origin. ? (the zero matrix = ker = the root of every provenance chain) is the universal hub; routing a local step through it reaches anywhere, distance-independent.",
+      "flat": "the carrier M₂ is a FLAT vector space, so transport through 0 is PATH-INDEPENDENT: a displacement folded back to the origin (A→0) can be re-projected to ANY point (0→B); A→0→B equals A→B with no path memory. flatness = the origin re-references transport globally.",
+      "hub": "every provenance chain returns to ? → any two records connect through ? in ≤2 hops, however far apart in the local adjacency graph. verified: local diameter 3, origin-routed diameter 2. returning to ? collapses distance to a constant.",
+      "protocol": "the Boolean trit {−1,0,+1} = {fold back to ? (−√5, observation), the ORIGIN (0, the return channel = ker(L), the (−R+N)/√2 direction), project from ? (+√5, generation)}. transport = fold a local step to ?, pass through the 0-channel, project to the target.",
+      "teleportation": "the same shape as quantum teleportation: a shared origin (the entangled pair born at ?) turns local operations into a nonlocal jump. the hub does the distance."
+    }
+  },
+  "apex": {
+    "id": "KL_DTA",
+    "title": "the apex — the whole store as one record, observing itself",
+    "carrier": "M2(R) = Cl(1,1)",
+    "seed": "P = [[0,0],[2,1]]",
+    "grade": "FORCED when ν=0 — the store is on-shell iff it verifies",
+    "holds": "M(M(F)) = M(F): the document is a record; its body (base) is M of itself; the format is its own fixed point.",
+    "perimeter": {
+      "provenance": [
+        "?"
+      ],
+      "links": [],
+      "burns": []
+    },
+    "shape": {
+      "self_action": {
+        "symmetric_R": {
+          "modes": [
+            {
+              "lambda": "+sqrt5",
+              "verdict": true,
+              "generators": [
+                "BASE",
+                "FOLD",
+                "RETURN",
+                "FLOW",
+                "DEFECT"
+              ]
+            },
+            {
+              "lambda": "0",
+              "verdict": true,
+              "residual": 0,
+              "routes": 2
+            }
+          ]
+        },
+        "antisymmetric_N": {
+          "modes": [
+            {
+              "lambda": "-sqrt5",
+              "verdict": true,
+              "depth": 4,
+              "disc": 5
+            }
+          ]
+        }
+      },
+      "spectral": {
+        "kind": "law",
+        "op": "M(M(F)) = M(F): the document is a record; its body (base) is M of itself; the format is its own fixed point."
+      }
+    }
+  },
+  "bundles": {
+    "is": "the DNA library — the unique bundles over {I,R,N,J,h,P}, compressed to their expression; the spectrum is the decompression",
+    "law": "parity constrains the fork: symmetric→disc≥0 (real), antisymmetric→disc<0 (imaginary, all ∝ N — one line), asymmetric→any. the 2 parabolic are the unit {I,I}=2I and the void [J,P]=ε — the universal zero.",
+    "count": 14,
+    "catalog": [
+      {
+        "bundle": "{I,N}",
+        "parity": "antisymmetric",
+        "tr": 0.0,
+        "det": 4.0,
+        "disc": -16.0,
+        "fork": "elliptic",
+        "eigenvalues": [
+          "+2.00i",
+          "-2.00i"
+        ]
+      },
+      {
+        "bundle": "{N,P}",
+        "parity": "asymmetric",
+        "tr": -4.0,
+        "det": 5.0,
+        "disc": -4.0,
+        "fork": "elliptic",
+        "eigenvalues": [
+          "+1.00i",
+          "-1.00i"
+        ]
+      },
+      {
+        "bundle": "{I,I}",
+        "parity": "symmetric",
+        "tr": 4.0,
+        "det": 4.0,
+        "disc": 0.0,
+        "fork": "parabolic",
+        "eigenvalues": [
+          "+2.00",
+          "+2.00"
+        ]
+      },
+      {
+        "bundle": "[J,P]",
+        "parity": "asymmetric",
+        "tr": 0.0,
+        "det": 0.0,
+        "disc": 0.0,
+        "fork": "parabolic",
+        "eigenvalues": [
+          "+0.00",
+          "+0.00"
+        ]
+      },
+      {
+        "bundle": "{I,P}",
+        "parity": "asymmetric",
+        "tr": 2.0,
+        "det": 0.0,
+        "disc": 4.0,
+        "fork": "hyperbolic",
+        "eigenvalues": [
+          "+2.00",
+          "+0.00"
+        ]
+      },
+      {
+        "bundle": "{R,J}",
+        "parity": "symmetric",
+        "tr": -2.0,
+        "det": 0.0,
+        "disc": 4.0,
+        "fork": "hyperbolic",
+        "eigenvalues": [
+          "+0.00",
+          "-2.00"
+        ]
+      },
+      {
+        "bundle": "{R,h}",
+        "parity": "symmetric",
+        "tr": -4.0,
+        "det": 3.0,
+        "disc": 4.0,
+        "fork": "hyperbolic",
+        "eigenvalues": [
+          "-1.00",
+          "-3.00"
+        ]
+      },
+      {
+        "bundle": "[h,P]",
+        "parity": "asymmetric",
+        "tr": 0.0,
+        "det": -3.0,
+        "disc": 12.0,
+        "fork": "hyperbolic",
+        "eigenvalues": [
+          "-1.73",
+          "+1.73"
+        ]
+      },
+      {
+        "bundle": "{I,J}",
+        "parity": "symmetric",
+        "tr": 0.0,
+        "det": -4.0,
+        "disc": 16.0,
+        "fork": "hyperbolic",
+        "eigenvalues": [
+          "+2.00",
+          "-2.00"
+        ]
+      },
+      {
+        "bundle": "{I,h}",
+        "parity": "symmetric",
+        "tr": 0.0,
+        "det": -4.0,
+        "disc": 16.0,
+        "fork": "hyperbolic",
+        "eigenvalues": [
+          "+2.00",
+          "-2.00"
+        ]
+      },
+      {
+        "bundle": "{R,P}",
+        "parity": "asymmetric",
+        "tr": 6.0,
+        "det": 5.0,
+        "disc": 16.0,
+        "fork": "hyperbolic",
+        "eigenvalues": [
+          "+1.00",
+          "+5.00"
+        ]
+      },
+      {
+        "bundle": "{I,R}",
+        "parity": "symmetric",
+        "tr": 2.0,
+        "det": -4.0,
+        "disc": 20.0,
+        "fork": "hyperbolic",
+        "eigenvalues": [
+          "-1.24",
+          "+3.24"
+        ]
+      },
+      {
+        "bundle": "{R,R}",
+        "parity": "symmetric",
+        "tr": 6.0,
+        "det": 4.0,
+        "disc": 20.0,
+        "fork": "hyperbolic",
+        "eigenvalues": [
+          "+0.76",
+          "+5.24"
+        ]
+      },
+      {
+        "bundle": "[R,N]",
+        "parity": "symmetric",
+        "tr": 0.0,
+        "det": -5.0,
+        "disc": 20.0,
+        "fork": "hyperbolic",
+        "eigenvalues": [
+          "+2.24",
+          "-2.24"
+        ]
+      }
+    ],
+    "tower": {
+      "is": "the framework is the bundle operation iterated — a self-similar tower",
+      "levels": {
+        "gen 0": "?=0  — the void ([A,A]=0, universal self-negation)",
+        "gen 1": "P  — the seed (the first fixed point above ?, fixed by ν(R)=I)",
+        "gen 2": "{I,R,N,J,h,P}  — the primitives (bundles of P+τ; R,N generate M₂)",
+        "gen 3": "{…14…}  — the DNA library (bundles of gen 2)",
+        "gen N": "the 75 records, bundled — and the apex is their bundle",
+        "limit": "M₂(ℝ)  — the closure (continuum)"
+      },
+      "invariant": "parity → fork → constant holds at every level; same bundle op, every scale"
+    },
+    "algebra": {
+      "primitives": "I R N J h P",
+      "affirm": "{A,B} = A·B + B·A",
+      "negate": "[A,B] = A·B − B·A",
+      "nesting": "{R,{R,N}}, [{R,N},P] — bundles-of-bundles",
+      "scalars_sums": "{N,N}/2, 2{R,N}, -I, {N,N}/2 + [R,N]",
+      "records": "a record's matrix is a bundle expression; e.g. i_squared_phi_psi = {N,N}/2",
+      "reductive_forms": "I = −{N,N}/2 · −I = {N,N}/2 · h = [N,J]/2 · N = {R,N}"
+    },
+    "information": {
+      "spectral": "invariant (tr/det/disc/eigenvalues) — the simple info, conjugation-class label",
+      "geometric": "eigenvectors/orientation/polar Q/singular values — read through the matrix; the complex info",
+      "simple_bundles": "integer lattice (the 14 + {I,R,N,J,h,P}); tightly related (disc in the 1+k² family)",
+      "complex_bundles": "free/irrational coefficients (φ,−1,√2…); fewer relations, more information; the spectrum hides what only the geometry shows",
+      "to_type": "decompress reports SIMPLE/COMPLEX and both information types"
+    }
+  }
+}

@@ -1,0 +1,114 @@
+[
+  {
+    "bundle": "{I,N}",
+    "parity": "antisymmetric",
+    "tr": 0.0,
+    "det": 4.0,
+    "disc": -16.0,
+    "fork": "elliptic"
+  },
+  {
+    "bundle": "{N,P}",
+    "parity": "asymmetric",
+    "tr": -4.0,
+    "det": 5.000000000000001,
+    "disc": -4.0000000000000036,
+    "fork": "elliptic"
+  },
+  {
+    "bundle": "{I,I}",
+    "parity": "symmetric",
+    "tr": 4.0,
+    "det": 4.0,
+    "disc": 0.0,
+    "fork": "parabolic"
+  },
+  {
+    "bundle": "[J,P]",
+    "parity": "asymmetric",
+    "tr": 0.0,
+    "det": 0.0,
+    "disc": 0.0,
+    "fork": "parabolic"
+  },
+  {
+    "bundle": "{I,P}",
+    "parity": "asymmetric",
+    "tr": 2.0,
+    "det": 0.0,
+    "disc": 4.0,
+    "fork": "hyperbolic"
+  },
+  {
+    "bundle": "{R,J}",
+    "parity": "symmetric",
+    "tr": -2.0,
+    "det": 0.0,
+    "disc": 4.0,
+    "fork": "hyperbolic"
+  },
+  {
+    "bundle": "{R,h}",
+    "parity": "symmetric",
+    "tr": -4.0,
+    "det": 2.9999999999999996,
+    "disc": 4.000000000000002,
+    "fork": "hyperbolic"
+  },
+  {
+    "bundle": "[h,P]",
+    "parity": "asymmetric",
+    "tr": 0.0,
+    "det": -2.9999999999999996,
+    "disc": 11.999999999999998,
+    "fork": "hyperbolic"
+  },
+  {
+    "bundle": "{R,P}",
+    "parity": "asymmetric",
+    "tr": 6.0,
+    "det": 5.000000000000001,
+    "disc": 15.999999999999996,
+    "fork": "hyperbolic"
+  },
+  {
+    "bundle": "{I,J}",
+    "parity": "symmetric",
+    "tr": 0.0,
+    "det": -4.0,
+    "disc": 16.0,
+    "fork": "hyperbolic"
+  },
+  {
+    "bundle": "{I,h}",
+    "parity": "symmetric",
+    "tr": 0.0,
+    "det": -4.0,
+    "disc": 16.0,
+    "fork": "hyperbolic"
+  },
+  {
+    "bundle": "{I,R}",
+    "parity": "symmetric",
+    "tr": 2.0,
+    "det": -4.0,
+    "disc": 20.0,
+    "fork": "hyperbolic"
+  },
+  {
+    "bundle": "{R,R}",
+    "parity": "symmetric",
+    "tr": 6.0,
+    "det": 4.0,
+    "disc": 20.0,
+    "fork": "hyperbolic"
+  },
+  {
+    "bundle": "[R,N]",
+    "parity": "symmetric",
+    "tr": 0.0,
+    "det": -5.000000000000001,
+    "disc": 20.000000000000004,
+    "fork": "hyperbolic"
+  }
+]
