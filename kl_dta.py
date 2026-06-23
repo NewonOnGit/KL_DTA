@@ -143,6 +143,94 @@ def regen_core():
     return {"P": P, "I": I2, "R": R, "N": N, "J": J, "h": h, "L": L}
 
 
+def impossibility(X):
+    """The impossibility operator IS the self-action L={R,R}. A direction it PINS
+    (L v ∥ v, λ=±√5) is a BURN — impossibility confirming impossibility. A direction
+    it DISSOLVES (L v = 0, the kernel) is FORCED — the possible resolves. Burns are
+    the eigenvectors of the one impossibility; the verdict is L's spectrum, not stored."""
+    import numpy as np
+    L = regen_core()["L"]
+    v = np.asarray(X, float).reshape(-1)
+    Lv = L @ v
+    if np.linalg.norm(Lv) < 1e-9:
+        return ("FORCED", 0.0, "the possible: L dissolves it to the kernel (ν resolves)")
+    scale = np.linalg.norm(Lv) / np.linalg.norm(v)
+    cos = abs(v @ Lv) / (np.linalg.norm(v) * np.linalg.norm(Lv))
+    if cos > 0.999:
+        return ("BURN", scale, f"impossibility confirming impossibility: L pins it ×{scale:.3f} (√5)")
+    return ("MIXED", scale, "projects onto both the burn (±√5) and forced (0) eigenspaces")
+
+
+# ── KL-VM: a record IS a morphism — a typed function with provenance ─────────
+def _ns(X):
+    import numpy as np
+    c = regen_core()
+    return {"X": np.asarray(X, float), "I": np.eye(2),
+            "tr": lambda M: float(np.trace(M)), "det": lambda M: float(np.linalg.det(M)),
+            "R": c["R"], "N": c["N"], "J": c["J"], "h": c["h"], "P": c["P"]}
+
+def call(rid, X=None, coords=None):
+    """Execute a record's morphism body. A Carrier→Carrier morphism (e.g. master_equation)
+    binds X; a Params→Carrier morphism (e.g. carrier_manifold) binds coords a,b,c,d. The
+    equation IS a function (it holds its provenance)."""
+    r = get(rid)
+    body = (r or {}).get("morphism", {}).get("body") if r else None
+    if not body:
+        return None
+    ns = _ns(X if X is not None else 0)
+    if coords is not None:
+        ns.update(dict(zip("abcd", coords)))
+    try:
+        return eval(body, {"__builtins__": {}}, ns)
+    except NameError as e:
+        return f"domain mismatch — this morphism's body needs {e} (wrong domain for the input)"
+
+def library(title=None):
+    """The carrier manifold IS the library. Ask for a TITLE and the book is pulled and
+    READ — generated on demand from the manifold, never shelved. A book is a view (a
+    morphism Index → Row). With no title, returns the catalog (the index of titles)."""
+    import numpy as np
+    core = regen_core(); CORE = {k: core[k] for k in ("I","R","N","J","h","P")}
+    R = core["R"]; phi = (1+5**0.5)/2
+    def disc(M): return float(np.trace(M)**2 - 4*np.linalg.det(M))
+    books = {
+      "invariants": lambda: [(n, round(float(np.trace(M))), round(float(np.linalg.det(M))), round(disc(M)),
+            "EDGE" if abs(disc(M))<1e-9 else ("GOLDEN" if disc(M)>0 else "RETURN")) for n,M in CORE.items()],
+      "spectrum": lambda: [(n, [round(complex(e).real,3) if abs(complex(e).imag)<1e-9 else f"{round(complex(e).imag,3)}i"
+            for e in np.linalg.eigvals(M)]) for n,M in CORE.items()],
+      "verdict": lambda: [(n, impossibility(M)[0]) for n,M in CORE.items()],
+      "field":  lambda: [(k, int(round(np.linalg.matrix_power(R,k)[0,1])),
+            int(round(np.trace(np.linalg.matrix_power(R,k))))) for k in range(1,8)],
+      "worlds": lambda: [(k, 1+4*k, w) for k,w in [(1,"golden ℤ[φ]"),(0,"Boolean {0,1}"),(-1,"Eisenstein ℤ[ω]")]],
+      "difference": lambda: [("algebraic","R²−R","+I"),("spectral","√disc","√5"),
+            ("quantum","[R,N]","√10"),("number","the different","√5"),("charge","±I","U(1)")],
+      "fixed-points": lambda: [((0,0),"? void"),((1,0),"P seed"),((2,1),"I identity"),((-1,1),"Eisenstein")],
+      "opcodes": lambda: [("fold","X²"),("generate","+√5"),("return","λ=0→?"),("confirm","Lv=√5v"),
+            ("complete","R²+N²=R"),("reflect","√(XᵀX)")],
+    }
+    if title is None:
+        return sorted(books)                    # the catalog = the index of titles
+    fn = books.get(title)
+    return fn() if fn else None
+
+# tables are books; keep the old name as an alias
+def table(name): return library(name)
+
+def typer(X):
+    """The carrier manifold AS the Typer — a functor / morphism of morphisms. it routes any
+    object: its coordinates (the point on the manifold), type (signature), name, notation."""
+    import numpy as np
+    core = regen_core(); I2=core["I"]; Rr=core["R"]; Nr=core["N"]; hr=core["h"]
+    B = np.column_stack([m.reshape(-1) for m in (I2,Rr,Nr,hr)])
+    a,b,c,d = (np.linalg.inv(B) @ np.asarray(X,float).reshape(-1))
+    d_ = float(np.trace(X)**2 - 4*np.linalg.det(X))
+    world = "EDGE" if abs(d_)<1e-9 else ("GOLDEN" if d_>0 else "RETURN")
+    halt = "HALTED" if np.abs(np.asarray(X,float)@np.asarray(X,float)-np.asarray(X,float)).max()<1e-9 else "RUNNING"
+    return {"coords": [round(float(x),3) for x in (a,b,c,d)],
+            "notation": f"{a:+.2f}·I {b:+.2f}·R {c:+.2f}·N {d:+.2f}·h",
+            "verdict": impossibility(X)[0], "world": world, "halt": halt, "charge": round(float(a),3)}
+
+
 def regen():
     import numpy as np
     c = regen_core()
@@ -283,8 +371,11 @@ def recompute(db=DB):
     return db
 
 
+DERIVED_KEYS = ("fiber", "defect", "flow", "fixed_point")
 def write(db=DB):
-    PATH.write_text(json.dumps(db, indent=2, ensure_ascii=False), encoding="utf-8")
+    # derived sections are LAZY — never persisted; rebuilt in-memory on load (M(base) regenerates)
+    slim = {k: v for k, v in db.items() if k not in DERIVED_KEYS}
+    PATH.write_text(json.dumps(slim, indent=2, ensure_ascii=False), encoding="utf-8")
 
 
 def set_record(rec):
@@ -586,6 +677,11 @@ def show(rid):
     return 0
 
 
+# lazy derived sections: never persisted, regenerated in-memory on load (M(base) re-folds)
+if "fiber" not in DB:
+    recompute(DB)
+
+
 if __name__ == "__main__":
     if len(sys.argv) == 1:
         sys.exit(report())
@@ -619,5 +715,41 @@ if __name__ == "__main__":
         sys.exit(unfix(sys.argv[2], _params(sys.argv[3:])))
     if cmd == "decompress" and len(sys.argv) == 3:
         sys.exit(decompress(sys.argv[2]))
+    if cmd == "call" and len(sys.argv) == 4:
+        core = regen_core(); X = core.get(sys.argv[3])
+        if X is None:
+            print(f"no input '{sys.argv[3]}' (try I R N J h P)"); sys.exit(1)
+        out = call(sys.argv[2], X)
+        import numpy as np
+        print(f"  {sys.argv[2]}({sys.argv[3]}) = {np.round(out,6).tolist()}")
+        sys.exit(0)
+    if cmd in ("table", "library", "book") and len(sys.argv) == 3:
+        rows = library(sys.argv[2])
+        if rows is None:
+            print(f"no book '{sys.argv[2]}'. catalog: {library()}"); sys.exit(1)
+        for row in rows:
+            print("  " + " | ".join(str(c) for c in row))
+        sys.exit(0)
+    if cmd == "catalog" and len(sys.argv) == 2:
+        print("  the library (ask a title; the book is read, not stored):")
+        for t in library(): print(f"   · {t}")
+        sys.exit(0)
+    if cmd == "typer" and len(sys.argv) == 3:
+        core = regen_core(); X = core.get(sys.argv[3] if False else sys.argv[2])
+        if X is None:
+            print(f"no object '{sys.argv[2]}' (try I R N J h P)"); sys.exit(1)
+        t = typer(X)
+        print(f"  {sys.argv[2]}: {t['notation']}  [{t['verdict']} {t['halt']} {t['world']} q={t['charge']}]")
+        sys.exit(0)
+    if cmd == "impossibility" and len(sys.argv) == 3:
+        core = regen_core()
+        X = core.get(sys.argv[2])
+        if X is None:
+            X = decompress_bundle(sys.argv[2]) if ("{" in sys.argv[2] or "[" in sys.argv[2]) else None
+        if X is None:
+            print(f"no object '{sys.argv[2]}' (try I R N J h P or a bundle)"); sys.exit(1)
+        verdict, scale, why = impossibility(X)
+        print(f"  {sys.argv[2]}  →  {verdict}  (×{scale:.3f})\n  {why}")
+        sys.exit(0)
     print(__doc__)
     sys.exit(2)
