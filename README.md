@@ -121,6 +121,7 @@ python kl_dta.py apex           # speak the whole store as one record
 python kl_dta.py read P         # read anything through all 4 information types (X²)
 python kl_dta.py query master_equation             # a record's self_action spectrum + chain to ?
 python kl_dta.py voices burns_are_anti_equations   # origin-voice & observer-voice readings
+python kl_dta.py recursive-return N                 # return a state to ker(L), then read its chord
 
 # the investigations — each verifies a claim, then it was folded into the core:
 python recursion.py     # R²=R+I generates the framework AND closes (M∘M=M)
@@ -128,11 +129,33 @@ python all_constants.py # R is the Fibonacci matrix; the constants are a field
 python star.py          # the body is a pentagram
 python units.py         # the constant trit opens four quadratic worlds
 python nonlocal.py      # nonlocal transport = local transport returned to origin
+python recursive_return_nlp.py # deterministic runtime-lexicon demonstration
 ```
 
 `kl_dta.py` is the only engine — it reads, verifies, and maintains the one file. The
 `migration/` scripts are the recorded history of every fold (each verified, then
 internalized), kept for provenance. The JSON is canonical.
+
+## Recursive return and the runtime lexicon
+
+`structure.recursive_return` holds the executable contract:
+
+```
+L_R(X) = RX + XR − X
+X[t+1] = X[t] − η L_RᵀL_R X[t]
+M_R = projector onto ker(L_R)
+```
+
+A candidate value commits only when `‖L_R(X*)‖ ≤ tolerance` and its projection
+embedding is nonzero. Its dictionary key is a sign-aware, thresholded chord over
+`(R,h,N)`: equal keys mean the same **quantized chord**, not equality of the returned
+matrices. Repeated samples retain a count and vector sum; the exposed value is their
+normalized centroid.
+
+The canonical JSON stores this algorithm and its invariants, not the synthetic values
+learned by the demonstration. Those values are runtime-derived. The engine regenerates
+`J=diag(1,−1)` and `h=JN` from the seed so the return loop cannot grow a private,
+incompatible copy of the core.
 
 ## Provenance
 
