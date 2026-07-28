@@ -97,7 +97,9 @@ The five top-level keys are the framework read as the medium that holds it:
 
 ## The record is the P = R + N split — and an eigendecomposition
 
-There is no `P1/P2/P3`, no `L`, no stored `section` or `kind` — those were lossy names.
+There is no global `P1/P2/P3`, no stored `L`, no stored `section` or `kind` — those
+were lossy names. The later namespaced `L_R` is executable return machinery, not a
+second stored spectral schema.
 Each record holds `self_action`, the full `P = R + N` split:
 
 ```
@@ -128,11 +130,22 @@ python all_constants.py # R is the Fibonacci matrix; the constants are a field
 python star.py          # the body is a pentagram
 python units.py         # the constant trit opens four quadratic worlds
 python nonlocal.py      # nonlocal transport = local transport returned to origin
+python recursive_return_nlp.py  # ν_R→0 commits sign-aware kernel meanings
+
+# regression gates for the folded recursive-return behavior:
+python -m unittest discover -s tests -v
 ```
 
 `kl_dta.py` is the only engine — it reads, verifies, and maintains the one file. The
 `migration/` scripts are the recorded history of every fold (each verified, then
 internalized), kept for provenance. The JSON is canonical.
+
+The recursive-return implementation is now part of that engine:
+`kl_dta.recursive_return` flows a state to the two-dimensional kernel of
+`L_R(X)=RX+XR−X`. Its residual is namespaced as `ν_R`; the store's global defect
+remains `ν(X)=X²−X`. The `structure.recursive_return` contract in `KL_DTA.json`
+holds the equations, kernel and projector invariants, commit rule, and frozen
+four-context → two-value regression fixture.
 
 ## Provenance
 
