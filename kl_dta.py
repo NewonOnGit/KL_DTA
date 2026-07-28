@@ -143,6 +143,75 @@ def regen_core():
     return {"P": P, "I": I2, "R": R, "N": N, "J": J, "h": h, "L": L}
 
 
+def return_residual(X):
+    """Namespaced recursive-return residual ν_R(X) = L_R(X).
+
+    This is deliberately not the store's global quadratic defect ν(X)=X²−X.
+    It is the linear self-action residual whose zero set is ker(L_R).
+    """
+    import numpy as np
+    L = regen_core()["L"]
+    x = np.asarray(X, float)
+    if x.shape != (2, 2):
+        raise ValueError(f"recursive return expects a 2x2 state, got {x.shape}")
+    return (L @ x.reshape(-1)).reshape(2, 2)
+
+
+def return_kernel(tol=1e-9):
+    """Return an orthonormal row basis for ker(L_R)."""
+    import numpy as np
+    L = regen_core()["L"]
+    _, singular_values, right_vectors = np.linalg.svd(L)
+    return right_vectors[singular_values < tol]
+
+
+def return_projector(tol=1e-9):
+    """Orthogonal projector M_R onto ker(L_R)."""
+    basis = return_kernel(tol)
+    return basis.T @ basis
+
+
+def project_to_return_kernel(X, tol=1e-9):
+    """Apply M_R to one 2x2 state."""
+    import numpy as np
+    x = np.asarray(X, float)
+    if x.shape != (2, 2):
+        raise ValueError(f"recursive return expects a 2x2 state, got {x.shape}")
+    return (return_projector(tol) @ x.reshape(-1)).reshape(2, 2)
+
+
+def recursive_return(F0, eta=0.15, iters=300):
+    """Gradient flow on 1/2||L_R F||², returning F to ker(L_R).
+
+    Returns ``(F_star, residual_trajectory)``.  The projector and the returned
+    state have separate fixed-point meanings:
+
+      M_R @ M_R = M_R             map idempotence
+      M_R(F_star) = F_star        returned-state membership in ker(L_R)
+    """
+    import numpy as np
+    if iters < 0:
+        raise ValueError("iters must be non-negative")
+
+    core = regen_core()
+    L = core["L"]
+    stable_limit = 2.0 / np.linalg.norm(L, ord=2) ** 2
+    if not 0 < eta < stable_limit:
+        raise ValueError(
+            f"eta must satisfy 0 < eta < {stable_limit:.6g} for stable return"
+        )
+    f = np.asarray(F0, float)
+    if f.shape != (2, 2):
+        raise ValueError(f"recursive return expects a 2x2 state, got {f.shape}")
+    f = f.reshape(-1).copy()
+    gradient = L.T @ L
+    trajectory = []
+    for _ in range(iters):
+        trajectory.append(float(np.linalg.norm(L @ f)))
+        f -= eta * (gradient @ f)
+    return f.reshape(2, 2), trajectory
+
+
 def impossibility(X):
     """The impossibility operator IS the self-action L={R,R}. A direction it PINS
     (L v ∥ v, λ=±√5) is a BURN — impossibility confirming impossibility. A direction

@@ -6,6 +6,18 @@
     "store": "five-part fold (B.5): base/fiber/defect/flow/fixed_point",
     "record": "self_action — the three eigen-components of {R,R} : X ↦ R·X + X·R − X",
     "grade": "NOT stored. grade = leaf over the three verdicts (observation, generation, return).",
+    "recursive_return": {
+      "state_space": "C = M2(R); P=[[0,0],[2,1]], R=(P+Pᵀ)/2, N=(P−Pᵀ)/2",
+      "operator": "L_R(X) = R·X + X·R − X; alpha=1 is forced by tr(R)=1",
+      "residual": "ν_R(X) := L_R(X), namespaced from the global quadratic defect ν(X)=X²−X; ν_R=0 iff X∈ker(L_R)",
+      "kernel": "rank(L_R)=2, dim ker(L_R)=2, and N∈ker(L_R) because {R,N}=N (A8)",
+      "flow": "X_(t+1)=X_t−eta·L_RᵀL_R(X_t); eta=0.15 and 300 steps return the verified fixture to residual <1e−10",
+      "fixed_point": "M_R is the orthogonal projector onto ker(L_R): M_R²=M_R; a returned state satisfies M_R(X*)=X* and X*≈M_R(X0)",
+      "commit": "only ν_R→0 commits a sign-aware word(X*) ↦ unit z(X*) dictionary value",
+      "embedding": "z(X*)=(<X*,R>,<X*,h_R>,<X*,N>), h_R=diag(1,0)·N is the PR's namespaced mediation axis (not the store h=diag(1,−1)·N); <A,B>=4·tr(A·Bᵀ); sign keeps antipodal meanings distinct",
+      "verified_fixture": "seed 7: four contexts return to two dictionary values; w1,w2,w4 align positive (>0.99), w3 is antipodal (<−0.98)",
+      "implementation": "kl_dta.return_residual/return_kernel/return_projector/recursive_return; recursive_return_nlp.py is the pure NLP reader and executable demonstration"
+    },
     "metadata_audit": {
       "links": "= H₁ homology (cycles); provenance = spanning tree to ?",
       "verdict": "= trit = sign(disc) = three forks; null = the wall",
