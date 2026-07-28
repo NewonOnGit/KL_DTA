@@ -131,6 +131,7 @@ python star.py          # the body is a pentagram
 python units.py         # the constant trit opens four quadratic worlds
 python nonlocal.py      # nonlocal transport = local transport returned to origin
 python recursive_return_nlp.py  # ν_R→0 commits sign-aware kernel meanings
+python kl_dta.py recursive-return N  # run the folded return/commit path through the engine
 
 # regression gates for the folded recursive-return behavior:
 python -m unittest discover -s tests -v
@@ -145,7 +146,10 @@ The recursive-return implementation is now part of that engine:
 `L_R(X)=RX+XR−X`. Its residual is namespaced as `ν_R`; the store's global defect
 remains `ν(X)=X²−X`. The `structure.recursive_return` contract in `KL_DTA.json`
 holds the equations, kernel and projector invariants, commit rule, and frozen
-four-context → two-value regression fixture.
+four-context → two-value regression fixture. Its semantic axes are `(R,h_R,N)`,
+where the verified mediation axis `h_R=diag(1,0)·N` remains distinct from the
+store's canonical `h=diag(1,−1)·N`. Equal sign-aware chords merge through a
+counted normalized centroid; learned demonstration values remain runtime data.
 
 ## Provenance
 
