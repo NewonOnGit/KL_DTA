@@ -18,8 +18,12 @@ from collections.abc import Mapping
 import numpy as np
 
 from kl_dta import (
+    learn_recursive_return,
     project_to_return_kernel,
-    recursive_return,
+    recursive_return_axes,
+    recursive_return_config,
+    recursive_return_embedding,
+    recursive_return_word,
     regen_core,
     return_kernel,
     return_projector,
@@ -33,13 +37,8 @@ P = CORE["P"]
 R = CORE["R"]
 N = CORE["N"]
 Lmat = CORE["L"]
-
-# PR #2's mediation axis is intentionally namespaced.  It uses the rank-one
-# selector J_R=diag(1,0), not the store's canonical reflection J=diag(1,-1).
-J_RETURN = np.array([[1.0, 0.0], [0.0, 0.0]])
-H_RETURN = J_RETURN @ N
-
-AXIS_NAMES = ("A3:R", "P2:h", "A4|A8:N")
+_, H_RETURN, _ = recursive_return_axes()
+AXIS_NAMES = recursive_return_config()["axis_labels"]
 
 
 def cartan(A, B):
@@ -49,20 +48,12 @@ def cartan(A, B):
 
 def embedding(X):
     """Three-projection semantic embedding z(X)."""
-    return np.array([cartan(X, R), cartan(X, H_RETURN), cartan(X, N)])
+    return recursive_return_embedding(X)
 
 
 def word(X, tau=0.25):
     """Return a sign-aware sparse chord over the semantic axes."""
-    value = embedding(X)
-    scale = np.linalg.norm(value)
-    if scale == 0:
-        return ()
-    return tuple(
-        f"{'+' if coefficient > 0 else '-'}{name}"
-        for coefficient, name in zip(value, AXIS_NAMES)
-        if abs(coefficient) / scale > tau
-    )
+    return recursive_return_word(X, threshold=tau)
 
 
 def unit_embedding(X):
@@ -96,36 +87,42 @@ def learn_contexts(
     Dictionary values are normalized sums.  This keeps merging order-independent
     while preserving the PR's verified ``four contexts -> two values`` result.
     """
-    sums = {}
+    runtime_dictionary = {}
     residues = {}
     trajectories = {}
     words = {}
     states = {}
 
     for name, initial in contexts.items():
-        returned, trajectory = recursive_return(initial, eta=eta, iters=iters)
-        residual_norm = float(np.linalg.norm(return_residual(returned)))
-        if residual_norm >= commit_tol:
+        learned = learn_recursive_return(
+            runtime_dictionary,
+            initial,
+            eta=eta,
+            iters=iters,
+            tolerance=commit_tol,
+            threshold=tau,
+        )
+        if not learned["committed"]:
             raise RuntimeError(
-                f"{name} did not return: ||ν_R||={residual_norm:.3e} "
-                f">= commit tolerance {commit_tol:.3e}"
+                f"{name} did not commit: {learned['reason']} "
+                f"(||ν_R||={learned['residual']:.3e})"
             )
 
-        key = word(returned, tau=tau)
-        value = unit_embedding(returned)
-        sums[key] = sums.get(key, np.zeros_like(value)) + value
+        returned = learned["state"]
+        key = learned["word"]
+        value = learned["embedding"] / np.linalg.norm(learned["embedding"])
         residues[name] = value
-        trajectories[name] = trajectory
+        trajectories[name] = learned["trajectory"]
         words[name] = key
         states[name] = returned
 
-    dictionary = {}
-    for key, total in sums.items():
-        norm = np.linalg.norm(total)
-        dictionary[key] = total if norm == 0 else total / norm
+    dictionary = {
+        key: entry["value"] for key, entry in runtime_dictionary.items()
+    }
 
     return {
         "dictionary": dictionary,
+        "dictionary_entries": runtime_dictionary,
         "residues": residues,
         "trajectories": trajectories,
         "words": words,
@@ -177,7 +174,8 @@ def main():
     print("  THE LEARNED DICTIONARY")
     print("=" * 70)
     for key, value in result["dictionary"].items():
-        print(f"   {str(key):36} -> {np.round(value, 3).tolist()}")
+        count = result["dictionary_entries"][key]["count"]
+        print(f"   {str(key):36} -> {np.round(value, 3).tolist()}  n={count}")
     print(
         f"\n  {len(result['states'])} contexts returned to "
         f"{len(result['dictionary'])} dictionary values."

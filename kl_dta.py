@@ -27,6 +27,7 @@ Usage:
     python kl_dta.py regen                 # regenerate I,R,N,h + spectrum from seed P
     python kl_dta.py decompress <id>       # recompose a record/primitive's held seed
     python kl_dta.py decompress '{R,N}'    # unfold a bundle expression — its full spectral row
+    python kl_dta.py recursive-return N    # return a seed and gate its lexicon commit
     python kl_dta.py apex                  # speak the whole store as one record
 """
 
@@ -131,9 +132,9 @@ def provenance(rid):
 
 
 # ── SEED: regenerate the spectral core from P (nothing below is stored) ───────
-def regen_core():
+def regen_core(db=DB):
     import numpy as np
-    P = np.array(DB["seed"]["P"], float)
+    P = np.array(db["seed"]["P"], float)
     I2 = np.eye(2)
     R = (P + P.T) / 2
     N = (P - P.T) / 2
@@ -143,44 +144,83 @@ def regen_core():
     return {"P": P, "I": I2, "R": R, "N": N, "J": J, "h": h, "L": L}
 
 
-def return_residual(X):
+def recursive_return_config(db=DB):
+    """Read the recursive-return runtime contract from the canonical store."""
+    spec_ = db["structure"]["recursive_return"]
+    solver = spec_["solver"]
+    lexicon = spec_["lexicon"]
+    return {
+        "eta": float(solver["eta"]),
+        "max_iterations": int(solver["max_iterations"]),
+        "tolerance": float(solver["tolerance"]),
+        "svd_tolerance": float(solver["svd_tolerance"]),
+        "word_threshold": float(lexicon["word_threshold"]),
+        "axis_labels": tuple(lexicon["axis_labels"]),
+    }
+
+
+def recursive_return_axes(db=DB):
+    """Return the semantic axes (R,h_R,N), with h_R namespaced from store h."""
+    import numpy as np
+    core = regen_core(db)
+    selector = np.array([[1.0, 0.0], [0.0, 0.0]])
+    return core["R"], selector @ core["N"], core["N"]
+
+
+def return_residual(X, db=DB):
     """Namespaced recursive-return residual ν_R(X) = L_R(X).
 
     This is deliberately not the store's global quadratic defect ν(X)=X²−X.
     It is the linear self-action residual whose zero set is ker(L_R).
     """
     import numpy as np
-    L = regen_core()["L"]
+    L = regen_core(db)["L"]
     x = np.asarray(X, float)
     if x.shape != (2, 2):
         raise ValueError(f"recursive return expects a 2x2 state, got {x.shape}")
     return (L @ x.reshape(-1)).reshape(2, 2)
 
 
-def return_kernel(tol=1e-9):
+def return_kernel(tol=None, db=DB):
     """Return an orthonormal row basis for ker(L_R)."""
     import numpy as np
-    L = regen_core()["L"]
+    if tol is None:
+        tol = recursive_return_config(db)["svd_tolerance"]
+    L = regen_core(db)["L"]
     _, singular_values, right_vectors = np.linalg.svd(L)
     return right_vectors[singular_values < tol]
 
 
-def return_projector(tol=1e-9):
+def return_projector(tol=None, db=DB):
     """Orthogonal projector M_R onto ker(L_R)."""
-    basis = return_kernel(tol)
+    basis = return_kernel(tol, db)
     return basis.T @ basis
 
 
-def project_to_return_kernel(X, tol=1e-9):
+def recursive_return_projector(db=DB):
+    """Compatibility view: return ``(projector, orthonormal kernel basis)``."""
+    basis = return_kernel(db=db)
+    return basis.T @ basis, basis
+
+
+def project_to_return_kernel(X, tol=None, db=DB):
     """Apply M_R to one 2x2 state."""
     import numpy as np
     x = np.asarray(X, float)
     if x.shape != (2, 2):
         raise ValueError(f"recursive return expects a 2x2 state, got {x.shape}")
-    return (return_projector(tol) @ x.reshape(-1)).reshape(2, 2)
+    return (return_projector(tol, db) @ x.reshape(-1)).reshape(2, 2)
 
 
-def recursive_return(F0, eta=0.15, iters=300):
+def recursive_return(
+    F0,
+    eta=None,
+    iters=None,
+    tolerance=None,
+    *,
+    max_iterations=None,
+    db=DB,
+):
     """Gradient flow on 1/2||L_R F||², returning F to ker(L_R).
 
     Returns ``(F_star, residual_trajectory)``.  The projector and the returned
@@ -190,10 +230,20 @@ def recursive_return(F0, eta=0.15, iters=300):
       M_R(F_star) = F_star        returned-state membership in ker(L_R)
     """
     import numpy as np
+    cfg = recursive_return_config(db)
+    eta = cfg["eta"] if eta is None else float(eta)
+    if iters is not None and max_iterations is not None:
+        raise ValueError("use either iters or max_iterations, not both")
+    if max_iterations is not None:
+        iters = max_iterations
+    iters = cfg["max_iterations"] if iters is None else int(iters)
+    tolerance = cfg["tolerance"] if tolerance is None else float(tolerance)
     if iters < 0:
         raise ValueError("iters must be non-negative")
+    if tolerance <= 0:
+        raise ValueError("tolerance must be positive")
 
-    core = regen_core()
+    core = regen_core(db)
     L = core["L"]
     stable_limit = 2.0 / np.linalg.norm(L, ord=2) ** 2
     if not 0 < eta < stable_limit:
@@ -205,11 +255,125 @@ def recursive_return(F0, eta=0.15, iters=300):
         raise ValueError(f"recursive return expects a 2x2 state, got {f.shape}")
     f = f.reshape(-1).copy()
     gradient = L.T @ L
-    trajectory = []
+    trajectory = [float(np.linalg.norm(L @ f))]
     for _ in range(iters):
-        trajectory.append(float(np.linalg.norm(L @ f)))
+        if trajectory[-1] <= tolerance:
+            break
         f -= eta * (gradient @ f)
+        trajectory.append(float(np.linalg.norm(L @ f)))
     return f.reshape(2, 2), trajectory
+
+
+def recursive_return_result(X0, db=DB, **kwargs):
+    """Return the recursive-return state plus convergence and fixed-point data."""
+    import numpy as np
+    cfg = recursive_return_config(db)
+    tolerance = float(kwargs.get("tolerance") or cfg["tolerance"])
+    state, trajectory = recursive_return(X0, db=db, **kwargs)
+    projector = return_projector(db=db)
+    residual = float(np.linalg.norm(return_residual(state, db)))
+    initial = float(trajectory[0])
+    return {
+        "state": state,
+        "trajectory": trajectory,
+        "initial_residual": initial,
+        "residual": residual,
+        "iterations": len(trajectory) - 1,
+        "converged": residual <= tolerance,
+        "fixed": bool(
+            np.allclose(
+                projector @ state.reshape(-1),
+                state.reshape(-1),
+                atol=tolerance * 10,
+                rtol=0,
+            )
+        ),
+        "stability_limit": 2.0 / np.linalg.norm(regen_core(db)["L"], ord=2) ** 2,
+    }
+
+
+def recursive_return_embedding(X, db=DB):
+    """Three-projection readout over (R,h_R,N); R vanishes on-shell."""
+    import numpy as np
+    matrix = np.asarray(X, float)
+    if matrix.shape != (2, 2):
+        raise ValueError(f"recursive return expects a 2x2 state, got {matrix.shape}")
+
+    def inner(A, B):
+        return float(4 * np.trace(A @ B.T))
+
+    return np.array([inner(matrix, axis) for axis in recursive_return_axes(db)])
+
+
+def recursive_return_word(X, threshold=None, db=DB):
+    """Sign-aware chord key over the store-declared semantic axes."""
+    import numpy as np
+    cfg = recursive_return_config(db)
+    threshold = cfg["word_threshold"] if threshold is None else float(threshold)
+    if not 0 <= threshold < 1:
+        raise ValueError("word threshold must satisfy 0 <= threshold < 1")
+    value = recursive_return_embedding(X, db)
+    scale = float(np.linalg.norm(value))
+    if scale <= cfg["tolerance"]:
+        return ()
+    return tuple(
+        f"{'+' if component > 0 else '-'}{name}"
+        for component, name in zip(value, cfg["axis_labels"])
+        if abs(component) / scale > threshold
+    )
+
+
+def learn_recursive_return(dictionary, X0, db=DB, threshold=None, **kwargs):
+    """Commit a converged, nonzero return to a counted normalized centroid."""
+    import numpy as np
+    result = recursive_return_result(X0, db=db, **kwargs)
+    result.update(
+        {"committed": False, "word": None, "embedding": None, "value": None}
+    )
+    if not result["converged"]:
+        result["reason"] = "residual above commit tolerance"
+        return result
+
+    embedding = recursive_return_embedding(result["state"], db)
+    norm = float(np.linalg.norm(embedding))
+    if norm <= recursive_return_config(db)["tolerance"]:
+        result["reason"] = "zero embedding has no dictionary direction"
+        return result
+
+    word = recursive_return_word(result["state"], threshold=threshold, db=db)
+    if not word:
+        result["reason"] = "no active chord axes"
+        return result
+
+    sample = embedding / norm
+    current = dictionary.get(word)
+    vector_sum = (
+        sample if current is None else np.asarray(current["sum"], float) + sample
+    )
+    count = 1 if current is None else int(current["count"]) + 1
+    value = vector_sum / np.linalg.norm(vector_sum)
+    dictionary[word] = {"sum": vector_sum, "count": count, "value": value}
+    result.update(
+        {
+            "committed": True,
+            "reason": "residual reached commit tolerance",
+            "word": word,
+            "embedding": embedding,
+            "value": value,
+            "count": count,
+        }
+    )
+    return result
+
+
+def speak_recursive_return(result):
+    """Read a recursive-return result without changing its dictionary."""
+    import numpy as np
+    if not result.get("committed"):
+        return f"NO COMMIT — {result.get('reason', 'return is off-shell')}"
+    chord = " ".join(result["word"])
+    value = np.round(result["value"], 4).tolist()
+    return f"{chord} -> {value} (count={result['count']})"
 
 
 def impossibility(X):
@@ -456,6 +620,52 @@ def set_record(rec):
 
 
 # ── COMMIT: verify ───────────────────────────────────────────────────────────
+def verify_recursive_return(db=DB):
+    """Verify the stored return contract against the regenerated runtime."""
+    import numpy as np
+    errs = []
+    spec_ = db.get("structure", {}).get("recursive_return")
+    if not spec_:
+        return ["[RETURN] structure.recursive_return is missing"]
+    try:
+        cfg = recursive_return_config(db)
+        core = regen_core(db)
+        projector, basis = recursive_return_projector(db)
+        axes = recursive_return_axes(db)
+    except (KeyError, TypeError, ValueError) as exc:
+        return [f"[RETURN] malformed structure.recursive_return: {exc}"]
+
+    if basis.shape != (2, 4):
+        errs.append(f"[RETURN] kernel basis shape {basis.shape} != (2, 4)")
+    if not np.allclose(projector.T, projector, atol=cfg["tolerance"]):
+        errs.append("[RETURN] M_R is not symmetric")
+    if not np.allclose(projector @ projector, projector, atol=cfg["tolerance"]):
+        errs.append("[RETURN] M_R is not idempotent")
+    if not np.allclose(core["L"] @ projector, 0, atol=cfg["tolerance"]):
+        errs.append("[RETURN] image(M_R) is not contained in ker(L_R)")
+    if not np.allclose(return_residual(core["N"], db), 0, atol=cfg["tolerance"]):
+        errs.append("[RETURN] N is not in ker(L_R)")
+    if np.allclose(axes[1], core["h"], atol=cfg["tolerance"]):
+        errs.append("[RETURN] namespaced h_R collapsed into the store h")
+    if tuple(spec_["lexicon"]["embedding_axes"]) != ("R", "h_R", "N"):
+        errs.append("[RETURN] embedding axes are not exactly (R,h_R,N)")
+    if tuple(spec_["atoms"]) != ("A1", "A8", "A9", "A10"):
+        errs.append("[RETURN] atom chord is not A1+A8+A9+A10")
+
+    deepening = "recursive_return_learns_lexicon"
+    structure = db["structure"]
+    if deepening not in structure["deepenings"]:
+        errs.append("[RETURN] recursive-return deepening is missing")
+    if structure["chords"]["index"].get(deepening) != "A1+A8+A9+A10":
+        errs.append("[RETURN] recursive-return chord index does not match its atoms")
+    for atom in ("A1", "A8", "A9", "A10"):
+        if structure["chords"]["by_atom"].get(atom, []).count(deepening) != 1:
+            errs.append(
+                f"[RETURN] recursive-return chord is not indexed exactly once under {atom}"
+            )
+    return errs
+
+
 def verify(db=DB):
     errs = []
     base = db["base"]
@@ -480,6 +690,7 @@ def verify(db=DB):
         for gn in comp(r, "+sqrt5").get("generators", []):
             if gn not in VALID_GEN:
                 errs.append(f"[GEN] {rid}: unknown generator '{gn}'")
+    errs.extend(verify_recursive_return(db))
     return errs
 
 
@@ -698,6 +909,25 @@ def voices(rid):
     return 0
 
 
+def show_recursive_return(seed):
+    """Return a resolved seed to ker(L_R) and print its gated lexicon readout."""
+    matrix = _resolve(seed)
+    if matrix is None:
+        print(f"  cannot resolve '{seed}'")
+        return 1
+    dictionary = {}
+    result = learn_recursive_return(dictionary, matrix)
+    print(f"  recursive-return {seed}")
+    print(
+        f"    ||ν_R|| {result['initial_residual']:.3e} "
+        f"-> {result['residual']:.3e} in {result['iterations']} iterations"
+    )
+    print(f"    fixed={result['fixed']}  converged={result['converged']}")
+    print(f"    {speak_recursive_return(result)}")
+    print("    COMMIT PASS" if result["committed"] else "    COMMIT BLOCKED")
+    return 0 if result["committed"] else 1
+
+
 def apex():
     """Speak the whole store as one record — higher-order: the document is a record."""
     fp = DB["fixed_point"]
@@ -778,6 +1008,8 @@ if __name__ == "__main__":
         sys.exit(apex())
     if cmd == "voices" and len(sys.argv) == 3:
         sys.exit(voices(sys.argv[2]))
+    if cmd == "recursive-return" and len(sys.argv) == 3:
+        sys.exit(show_recursive_return(sys.argv[2]))
     if cmd == "read" and len(sys.argv) >= 3:
         sys.exit(read(sys.argv[2], _params(sys.argv[3:])))
     if cmd == "unfix" and len(sys.argv) >= 3:

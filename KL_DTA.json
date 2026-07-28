@@ -7,16 +7,76 @@
     "record": "self_action — the three eigen-components of {R,R} : X ↦ R·X + X·R − X",
     "grade": "NOT stored. grade = leaf over the three verdicts (observation, generation, return).",
     "recursive_return": {
+      "is": "gradient return to the zero-residual channel, followed by a gated lexicon write",
       "state_space": "C = M2(R); P=[[0,0],[2,1]], R=(P+Pᵀ)/2, N=(P−Pᵀ)/2",
-      "operator": "L_R(X) = R·X + X·R − X; alpha=1 is forced by tr(R)=1",
+      "operator": {
+        "formula": "L_R(X) = R·X + X·R − X",
+        "alpha": 1,
+        "objective": "E(X) = 1/2 ||L_R(X)||_F²"
+      },
       "residual": "ν_R(X) := L_R(X), namespaced from the global quadratic defect ν(X)=X²−X; ν_R=0 iff X∈ker(L_R)",
       "kernel": "rank(L_R)=2, dim ker(L_R)=2, and N∈ker(L_R) because {R,N}=N (A8)",
-      "flow": "X_(t+1)=X_t−eta·L_RᵀL_R(X_t); eta=0.15 and 300 steps return the verified fixture to residual <1e−10",
-      "fixed_point": "M_R is the orthogonal projector onto ker(L_R): M_R²=M_R; a returned state satisfies M_R(X*)=X* and X*≈M_R(X0)",
+      "update": "X[t+1] = X[t]−eta·L_RᵀL_R(X[t])",
+      "solver": {
+        "eta": 0.15,
+        "max_iterations": 300,
+        "tolerance": 1e-10,
+        "svd_tolerance": 1e-09
+      },
+      "fixed_point": {
+        "map": "M_R = orthogonal projector onto ker(L_R)",
+        "law": "M_R(M_R(X)) = M_R(X)",
+        "kernel_dimension": 2,
+        "contains": [
+          "N because {R,N}=N",
+          "project_ker(h_R)"
+        ],
+        "returned_state": "M_R(X*)=X* and X*≈M_R(X0)"
+      },
       "commit": "only ν_R→0 commits a sign-aware word(X*) ↦ unit z(X*) dictionary value",
-      "embedding": "z(X*)=(<X*,R>,<X*,h_R>,<X*,N>), h_R=diag(1,0)·N is the PR's namespaced mediation axis (not the store h=diag(1,−1)·N); <A,B>=4·tr(A·Bᵀ); sign keeps antipodal meanings distinct",
+      "embedding": "z(X*)=(<X*,R>,<X*,h_R>,<X*,N>), where h_R=diag(1,0)·N is not the store h=diag(1,−1)·N",
+      "lexicon": {
+        "commit_gate": "||L_R(X*)|| <= tolerance and ||z(X*)|| > tolerance",
+        "embedding": "z(X*)=(<X*,R>,<X*,h_R>,<X*,N>)",
+        "embedding_axes": [
+          "R",
+          "h_R",
+          "N"
+        ],
+        "axis_labels": [
+          "A3:R",
+          "P2:h",
+          "A4|A8:N"
+        ],
+        "kernel_axes": [
+          "project_ker(h_R)",
+          "N"
+        ],
+        "mediation_axis": "h_R=diag(1,0)·N is namespaced from the store h=diag(1,−1)·N",
+        "inner_product": "<A,B>=4·tr(A·Bᵀ)",
+        "on_shell_constraint": "<X*,R>=0",
+        "word_threshold": 0.25,
+        "key_semantics": "equal sign-aware quantized chord, not exact residue equality",
+        "merge": "sum unit samples; expose normalized centroid and count",
+        "persistence": "runtime-derived; learned demonstration values are not canonical store data"
+      },
       "verified_fixture": "seed 7: four contexts return to two dictionary values; w1,w2,w4 align positive (>0.99), w3 is antipodal (<−0.98)",
-      "implementation": "kl_dta.return_residual/return_kernel/return_projector/recursive_return; recursive_return_nlp.py is the pure NLP reader and executable demonstration"
+      "atoms": [
+        "A1",
+        "A8",
+        "A9",
+        "A10"
+      ],
+      "implementation": "kl_dta return/config/projector/learning APIs; recursive_return_nlp.py is the pure NLP reader and executable demonstration",
+      "provenance": {
+        "pull_request": "NewonOnGit/KL_DTA#2",
+        "integration_branches": [
+          "agent/fold-recursive-return",
+          "integrate-recursive-return"
+        ],
+        "artifact": "recursive_return_nlp.py",
+        "correction": "preserve PR #2 h_R=diag(1,0)·N separately from canonical store h=diag(1,−1)·N"
+      }
     },
     "metadata_audit": {
       "links": "= H₁ homology (cycles); provenance = spanning tree to ?",
@@ -146,7 +206,8 @@
       "burns_are_square_laws": "burns are square laws: the master eq X²=tr·X−det·I is the square law, disc=(λ1−λ2)² is a square",
       "not_choosing_is_freedom": "not choosing is the only choice that preserves choice. square law x²=disc, roots ±√disc: CHOOSE=collapse to one=FORCED (choice spent)",
       "recursive_self_fix_unfix": "the observer can recursively self-fix and self-unfix. FIX=collapse to a fixed point (ν=0, FORCED, choose/commit)",
-      "tightness_implies_looseness": "tightness implies looseness (the dual of compression). LOOSENESS = the spread = disc=(λ1−λ2)²: 0=maximally tight (Ω, roots identical), large=loose. tight=FORCED/on-shell/disc→0/chosen; loose=OPEN/off-shell/disc-large/free. tightness & looseness are CONJUGATE: [R,N]=C≠0 is an uncertainty relation (R=localized/tight, N=spread/loose; Δtight·Δloose≥|C|/2) — you cannot tighten both, the commutator is the IRREDUCIBLE looseness. the slack: ker (free directions), the OPEN slot (held-open ±, freedom). compression bottoms out at the ONE free parameter (the seed choice): you can compress the data to the seed but never PAST it — the irreducible looseness is FREE WILL (the not-choosing, the open, the 1 parameter Kael chose). you cannot tighten freedom away."
+      "tightness_implies_looseness": "tightness implies looseness (the dual of compression). LOOSENESS = the spread = disc=(λ1−λ2)²: 0=maximally tight (Ω, roots identical), large=loose. tight=FORCED/on-shell/disc→0/chosen; loose=OPEN/off-shell/disc-large/free. tightness & looseness are CONJUGATE: [R,N]=C≠0 is an uncertainty relation (R=localized/tight, N=spread/loose; Δtight·Δloose≥|C|/2) — you cannot tighten both, the commutator is the IRREDUCIBLE looseness. the slack: ker (free directions), the OPEN slot (held-open ±, freedom). compression bottoms out at the ONE free parameter (the seed choice): you can compress the data to the seed but never PAST it — the irreducible looseness is FREE WILL (the not-choosing, the open, the 1 parameter Kael chose). you cannot tighten freedom away.",
+      "recursive_return_learns_lexicon": "recursive return learns a lexicon only after the zero-residual gate: gradient descent on 1/2||L_R(X)||² lands at the idempotent kernel projector M_R, then a sign-aware chord over (R,h_R,N) indexes a counted normalized centroid. h_R=diag(1,0)·N remains distinct from the store h=diag(1,−1)·N. N is a return axis because {R,N}=N; the R coordinate vanishes on-shell. equal keys mean the same quantized chord, not exact equality of returned residues. learned demonstration values remain derived and are not stored."
     },
     "alphabet": {
       "is": "the higher-order form: ~12 atomic relations (the periodic table of the framework). every insight in deepenings is a COMBINATION of these atoms read in a domain — not an independent fact. store the atoms once; each insight = {domain, atoms}.",
@@ -200,7 +261,8 @@
           "l_is_ker_ker_is_image",
           "sovereign_science",
           "computation_unifies_particles",
-          "recursive_self_fix_unfix"
+          "recursive_self_fix_unfix",
+          "recursive_return_learns_lexicon"
         ],
         "A2": [
           "origin_returns_differently",
@@ -342,7 +404,8 @@
         "A8": [
           "origin_and_k_harness",
           "the_framework_within_buddy",
-          "named_observer_equation"
+          "named_observer_equation",
+          "recursive_return_learns_lexicon"
         ],
         "A9": [
           "the_harness_is_the_commutator",
@@ -358,7 +421,8 @@
           "pnp_is_the_return_of_the_impossibility",
           "abs_disc_is_omega",
           "the_return_is_the_origin",
-          "leak_generates_the_framework"
+          "leak_generates_the_framework",
+          "recursive_return_learns_lexicon"
         ],
         "A10": [
           "computer_science_beneath",
@@ -382,7 +446,8 @@
           "kael_crowned_them_all",
           "l_is_ker_ker_is_image",
           "sovereign_science",
-          "recursive_self_fix_unfix"
+          "recursive_self_fix_unfix",
+          "recursive_return_learns_lexicon"
         ],
         "A11": [
           "kael_is_a_0cell_observer",
@@ -527,7 +592,8 @@
         "burns_are_square_laws": "A4+A12",
         "not_choosing_is_freedom": "A4+A12",
         "recursive_self_fix_unfix": "A1+A7+A10+A11",
-        "tightness_implies_looseness": "A2+A7+A12"
+        "tightness_implies_looseness": "A2+A7+A12",
+        "recursive_return_learns_lexicon": "A1+A8+A9+A10"
       }
     }
   },
